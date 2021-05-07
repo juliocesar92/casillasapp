@@ -1,0 +1,692 @@
+<ion-header>
+  <ion-navbar color="casilla">
+    <ion-title>
+    <img alt="logo" height="50" src="assets/imgs/Box-check.png" > 
+    SISCC
+    </ion-title>
+
+     <ion-buttons end>
+
+
+     <!--<button ion-button icon-only  (click)="obtenerPosicion()" >  
+       <ion-icon name="locate"></ion-icon> 
+     </button>-->
+   
+
+     <button ion-button icon-only  (click)="logout()" >  
+       <ion-icon name="log-out"></ion-icon> 
+     </button>
+
+     
+     </ion-buttons>
+
+
+    
+
+
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding class="masters">
+
+<h4 align="center">Listado de casillas por capturar</h4><br>
+<hr><br>
+
+<!--<button ion-button round outline>Outline + Round</button>
+<button ion-button round>Round Button</button>-->
+
+Sección / Padrón / Listado nominal / Casilla<br><br>
+
+<ion-list *ngFor="let items of insertos">
+  <button ion-item round  (click)="itemSelected(items.id, items.Seccion)" [ngStyle]="{'background-color': (items.save_funcionario == '1'&&items.save_apertura == '1'&&items.save_flujo == '1'&&items.save_incidente == '1'&&items.save_cierre == '1'&&items.save_actas == '1'&&items.save_cifras_frente == '1'&&items.save_cifras_morena == '1'&&items.save_cifras_pri=='1'&&items.save_cifras_prd=='1'&&items.save_cifras_pan=='1'&&items.save_cifras_mc=='1'&&items.save_cifras_pt=='1'&&items.save_cifras_pes=='1'&&items.save_cifras_coalicion_jhh=='1'&&items.save_cifras_verde=='1'&&items.save_cifras_nueva_alianza=='1'&&items.save_cifras_humanista=='1'&&items.save_cifras_coalicion_todos_mexico=='1'&&items.save_escrito=='1') ? '#89FC63' : '#FF8A8A' }"> 
+    <ion-icon name="archive"></ion-icon>
+    {{ items.Seccion }}/{{ items.Padron_Electoral }}/{{ items.Listado_Nominal }}/{{ items.Casillas_a_Instalar }}<br>
+  </button><br>
+</ion-list>
+
+
+
+
+
+
+
+
+
+</ion-content>
+
+
+
+
+
+
+<!--
+<ion-content padding [ngSwitch]="status">
+
+
+   <ion-searchbar [hidden]="ver_buscador" #searchbar placeholder="Buscar lugar o dirección"></ion-searchbar>
+  <div   [hidden]="ver_mapa"  #map id="map"></div>
+
+  <ion-grid *ngSwitchCase="'1'">
+              <ion-row>
+                  <ion-col>
+                  <div> 
+                          <h3>Ubicación</h3>
+                       
+                      
+
+                           <ion-row center>  
+                          <ion-col text-center> 
+                           
+                           <button ion-button button-block  (click)="evento_cambio_pagina(2)">Siguiente</button>
+                           
+                          </ion-col> 
+                         </ion-row>
+
+
+                        </div>
+
+                      
+                          
+                    
+                  </ion-col>
+              </ion-row>
+  </ion-grid>
+-->
+
+
+<!--
+
+<ion-grid *ngSwitchCase="'1'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Casilla</h3>
+                       <br>
+
+
+                      
+
+                       <ion-list>
+                          <ion-item>
+                              <ion-label>Sección:</ion-label>
+                              <ion-select [(ngModel)]="seccion" interface="popover" (ionChange)="onSelectChange($event)">
+                                  <ion-option  *ngFor="let tipos of insertos_producto"  value="{{tipos.Seccion}}">{{tipos.Seccion}}</ion-option>
+                              </ion-select>
+                          </ion-item>
+
+
+
+                          <ion-item>
+                              <ion-label>Padrón electoral:</ion-label>
+                              <ion-select [(ngModel)]="padron" interface="popover" (ionChange)="onSelectChange2($event)">
+                               <ion-option  *ngFor="let tipos of insertos_producto2"  value="{{tipos.Padron_Electoral}}">{{tipos.Padron_Electoral}}</ion-option>
+                                 
+                              </ion-select>
+                          </ion-item>
+
+
+
+                          <ion-item>
+                              <ion-label>Listado Nominal:</ion-label>
+                              <ion-select [(ngModel)]="listado_n" interface="popover" (ionChange)="onSelectChange3($event)">
+                               <ion-option  *ngFor="let tipos of insertos_producto3"  value="{{tipos.Listado_Nominal}}">{{tipos.Listado_Nominal}}</ion-option>
+                                 
+                              </ion-select>
+                          </ion-item>
+
+
+                          <ion-item>
+                              <ion-label>Casilla:</ion-label>
+                              <ion-select [(ngModel)]="casilla" interface="popover">
+                               <ion-option  *ngFor="let tipos of insertos_producto4"  value="{{tipos.id}}">{{tipos.Casillas_a_Instalar}}</ion-option>
+                                 
+                              </ion-select>
+                          </ion-item>
+
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>Hora de apertura de la casilla:</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+
+                       </ion-list>
+
+
+                         <ion-row center>  
+                        <ion-col text-center> 
+                         
+                         <button ion-button button-block  (click)="evento_cambio_pagina(2)">Siguiente</button>
+                         
+                        </ion-col> 
+                       </ion-row>
+
+                   
+
+
+
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+-->
+
+<!--
+<ion-grid *ngSwitchCase="'2'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Flujo de votación</h3>
+                       <br>
+                       <ion-list>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>Flujo 10:00</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>Flujo 12:00</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>Flujo 14:00</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>Flujo 16:00</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>Flujo 18:00</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+
+                       </ion-list>
+
+
+                      
+                      <ion-row center>  
+                       <ion-col text-center> 
+                        <button ion-button button-block (click)="evento_cambio_pagina(1)">Atras</button>
+                        <button ion-button button-block  (click)="evento_cambio_pagina(3)">Siguiente</button>
+                        
+                       </ion-col> 
+                      </ion-row>
+
+                   
+
+
+
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+
+<ion-grid *ngSwitchCase="'3'">
+            <ion-row>
+                <ion-col>
+                <div>
+           
+
+                        <h3>Incidentes durante la jornada(opcional)</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_incidente" *ngIf="foto_incidente" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_incidente()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list>
+
+
+
+                       <ion-row center>  
+                        <ion-col text-center> 
+                         <button ion-button button-block (click)="evento_cambio_pagina(2)">Atras</button>
+                         <button ion-button button-block  (click)="evento_cambio_pagina(4)">Siguiente</button>
+                         
+                        </ion-col> 
+                       </ion-row>
+
+
+                       
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+
+<ion-grid *ngSwitchCase="'4'">
+            <ion-row>
+                <ion-col>
+                <div>
+           
+
+                        <h3>Casilla</h3>
+                       <br>
+                       <ion-list>
+
+                        <ion-item>
+                            <ion-label color="primary" floating>Hora de cierre de la casilla:</ion-label>
+                             <ion-input [(ngModel)]="cierre_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                       </ion-list>
+
+
+
+                       <ion-row center>  
+                        <ion-col text-center> 
+                         <button ion-button button-block (click)="evento_cambio_pagina(3)">Atras</button>
+                         <button ion-button button-block  (click)="evento_cambio_pagina(5)">Siguiente</button>
+                         
+                        </ion-col> 
+                       </ion-row>
+
+
+                       
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+
+<ion-grid *ngSwitchCase="'5'">
+            <ion-row>
+                <ion-col>
+                <div>
+           
+
+                      <h3>Acta Presidente</h3>
+                      <br>
+                      <ion-list>
+                         <ion-item>
+                            <img [src]="foto_presidente" *ngIf="foto_presidente" />
+                            <button  ion-button icon-left full type="button" (tap)="sacarFoto_presidente()">
+                              Tomar foto &nbsp;&nbsp;
+                              <ion-icon name="camera"></ion-icon>
+                            </button>
+                         </ion-item>
+
+
+                      </ion-list><br>
+
+                      <h3>Acta Jefe de la CDMX</h3>
+                      <br>
+                      <ion-list>
+                         <ion-item>
+                            <img [src]="foto_jefe" *ngIf="foto_jefe" />
+                            <button  ion-button icon-left full type="button" (tap)="sacarFoto_jefe()">
+                              Tomar foto &nbsp;&nbsp;
+                              <ion-icon name="camera"></ion-icon>
+                            </button>
+                         </ion-item>
+
+
+                      </ion-list><br>
+
+
+
+                      <h3>Acta Senadores</h3>
+                      <br>
+                      <ion-list>
+                         <ion-item>
+                            <img [src]="foto_senadores" *ngIf="foto_senadores" />
+                            <button  ion-button icon-left full type="button" (tap)="sacarFoto_senadores()">
+                              Tomar foto &nbsp;&nbsp;
+                              <ion-icon name="camera"></ion-icon>
+                            </button>
+                         </ion-item>
+
+
+                      </ion-list><br>
+
+                      <h3>Acta Diputados Federales</h3>
+                      <br>
+                      <ion-list>
+                         <ion-item>
+                            <img [src]="foto_diputados_f" *ngIf="foto_diputados_f" />
+                            <button  ion-button icon-left full type="button" (tap)="sacarFoto_diputados_f()">
+                              Tomar foto &nbsp;&nbsp;
+                              <ion-icon name="camera"></ion-icon>
+                            </button>
+                         </ion-item>
+
+
+                      </ion-list><br>
+
+
+                      <h3>Acta Diputados Locales</h3>
+                      <br>
+                      <ion-list>
+                         <ion-item>
+                            <img [src]="foto_diputados_l" *ngIf="foto_diputados_l" />
+                            <button  ion-button icon-left full type="button" (tap)="sacarFoto_diputados_l()">
+                              Tomar foto &nbsp;&nbsp;
+                              <ion-icon name="camera"></ion-icon>
+                            </button>
+                         </ion-item>
+
+
+                      </ion-list><br>
+
+
+                      <h3>Acta Alcandias</h3>
+                      <br>
+                      <ion-list>
+                         <ion-item>
+                            <img [src]="foto_alcaldias" *ngIf="foto_alcaldias" />
+                            <button  ion-button icon-left full type="button" (tap)="sacarFoto_alcaldias()">
+                              Tomar foto &nbsp;&nbsp;
+                              <ion-icon name="camera"></ion-icon>
+                            </button>
+                         </ion-item>
+
+
+                      </ion-list><br>
+
+
+                       <ion-row center>  
+                        <ion-col text-center> 
+                         <button ion-button button-block (click)="evento_cambio_pagina(4)">Atras</button>
+                         <button ion-button button-block  (click)="evento_cambio_pagina(6)">Siguiente</button>
+                         
+                        </ion-col> 
+                       </ion-row>
+
+
+                       
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+
+<ion-grid *ngSwitchCase="'6'">
+            <ion-row>
+                <ion-col>
+                <div>
+           
+
+                        <h3>Cifras nuestro frente</h3>
+                       <br>
+                       <ion-list>
+
+                          
+                          <ion-item>
+                             <ion-label color="primary" floating>Cifra acta presidente</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta jefe CDMX</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta senadores</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta diputados federales</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta diputados locales</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta alcandias</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+
+                       </ion-list>
+
+
+
+                       <ion-row center>  
+                        <ion-col text-center> 
+                         <button ion-button button-block (click)="evento_cambio_pagina(5)">Atras</button>
+                         <button ion-button button-block  (click)="evento_cambio_pagina(7)">Siguiente</button>
+                         
+                        </ion-col> 
+                       </ion-row>
+
+
+                       
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+
+
+<ion-grid *ngSwitchCase="'7'">
+            <ion-row>
+                <ion-col>
+                <div>
+           
+
+                        <h3>Cifras Morena</h3>
+                       <br>
+                       <ion-list>
+
+                          
+                          <ion-item>
+                             <ion-label color="primary" floating>Cifra acta presidente</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta jefe CDMX</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta senadores</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta diputados federales</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta diputados locales</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta alcandias</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+
+                       </ion-list>
+
+
+
+                       <ion-row center>  
+                        <ion-col text-center> 
+                         <button ion-button button-block (click)="evento_cambio_pagina(6)">Atras</button>
+                         <button ion-button button-block  (click)="evento_cambio_pagina(8)">Siguiente</button>
+                         
+                        </ion-col> 
+                       </ion-row>
+
+
+                       
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngSwitchCase="'8'">
+            <ion-row>
+                <ion-col>
+                <div>
+           
+
+                        <h3>Cifras PRI</h3>
+                       <br>
+                       <ion-list>
+
+                          
+                          <ion-item>
+                             <ion-label color="primary" floating>Cifra acta presidente</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta jefe CDMX</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta senadores</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta diputados federales</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta diputados locales</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>Cifra acta alcandias</ion-label>
+                             <ion-input [(ngModel)]="hora_apertura" type="text" ></ion-input>
+                          </ion-item>
+
+
+
+                       </ion-list>
+
+
+
+                       <ion-row center>  
+                        <ion-col text-center> 
+                         <button ion-button button-block (click)="evento_cambio_pagina(7)">Atras</button>
+                          <button ion-button button-block  (click)="guardar()">Guardar</button>
+                         
+                        </ion-col> 
+                       </ion-row>
+
+
+                       
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+
+
+
+
+
+
+
+</ion-content>
+
+
+-->

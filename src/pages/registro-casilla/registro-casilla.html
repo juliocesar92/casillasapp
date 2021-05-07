@@ -1,0 +1,832 @@
+<!--
+  Generated template for the RegistroCasillaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="casilla">
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+   <!--<div padding>-->
+     <ion-segment  [(ngModel)]="status">
+       <ion-segment-button  value="1" [ngClass]="(color1 == '1') ? 'segment-button22' : 'segment-button11'">
+       1
+       </ion-segment-button>
+       <ion-segment-button value="2"  [ngClass]="(color2 == '1') ? 'segment-button22' : 'segment-button11'">
+         2
+       </ion-segment-button>
+       <ion-segment-button value="3"  [ngClass]="(color3 == '1') ? 'segment-button22' : 'segment-button11'">
+         3
+       </ion-segment-button>
+       <ion-segment-button value="4"  [ngClass]="(color4 == '1') ? 'segment-button22' : 'segment-button11'">
+         4
+       </ion-segment-button>
+       <ion-segment-button value="5"  [ngClass]="(color5 == '1') ? 'segment-button22' : 'segment-button11'">
+         5
+       </ion-segment-button>
+       <ion-segment-button value="6"  [ngClass]="(color6 == '1') ? 'segment-button22' : 'segment-button11'">
+         6
+       </ion-segment-button>
+       <ion-segment-button value="7"  [ngClass]="(color7 == '1') ? 'segment-button22' : 'segment-button11'">
+         7
+       </ion-segment-button>
+       <ion-segment-button value="8"  [ngClass]="(color8 == '1') ? 'segment-button22' : 'segment-button11'">
+         8
+       </ion-segment-button>
+       <!--<ion-segment-button value="8"  [ngClass]="(color8 == '1') ? 'segment-button22' : 'segment-button11'">
+         8
+       </ion-segment-button>-->
+
+
+        <!--<ion-segment-button value="9"  [ngClass]="(color9 == '1') ? 'segment-button22' : 'segment-button11'">
+         9
+       </ion-segment-button>-->
+     </ion-segment>
+   <!--</div>-->
+   </ion-toolbar>
+
+
+
+</ion-header>
+
+
+<ion-content padding [ngSwitch]="status" class="masters">
+
+
+<ion-grid *ngSwitchCase="'1'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Funcionario</h3>
+
+
+                      
+                       <ion-list>
+
+                          <ion-label >Registrar la asistencia de la persona en el listado nominal </ion-label> <br>
+                           <button ion-button   (click)="buscar_listado_nominal()">Buscar</button>
+
+
+
+                         <ion-item>
+                           <button ion-button (click)="obtenerPosicion()" primary class="login-button">Guardar ubicación</button>
+                         </ion-item>
+
+
+
+                         <br><hr><br>
+
+
+
+                         <ion-label >Agregue a los funcionarios</ion-label><br>
+
+
+
+                         <ion-item-sliding *ngFor="let att of anArray; let idx = index">
+                          <ion-item >   
+
+
+                             <ion-label color="primary">{{att.label}}{{idx+1}}</ion-label>
+                             <ion-input type="text"    placeholder="Nombre" [(ngModel)]="anArray[idx].nombre"></ion-input><br>
+                             <ion-input type="text"    placeholder="A.Paterno" [(ngModel)]="anArray[idx].ape_pat"></ion-input><br>
+                             <ion-input type="text"    placeholder="A.Materno" [(ngModel)]="anArray[idx].ape_mat"></ion-input>
+
+
+                          </ion-item>
+                          <ion-item-options>
+                          <!--<button ion-button color="secondary" (tap)="entrar()"><ion-icon ios="ios-trash" md="md-trash"></ion-icon>Editar</button>-->
+                          <button ion-button color="danger" (tap)="removeItem(anArray[idx])"><ion-icon ios="ios-trash" md="md-trash"></ion-icon>Borrar</button>
+                          </ion-item-options>
+                        </ion-item-sliding>
+
+                           <button ion-button   (click)="Add()">Agregar funcionario</button>
+                           <!--<button ion-button full  (click)="goTo()" >let's go</button>-->
+
+                          <!--<ion-card *ngIf="data">
+                           <ion-item *ngFor="let att of anArray;">
+                             <div class="card-title">{{att.value}}</div>
+                           </ion-item>
+                          </ion-card>-->
+
+
+                          <br><hr><br>
+
+
+
+                           <ion-label >Agregue a los Representantes</ion-label><br>
+
+
+                           <ion-item >   
+
+                              <ion-input type="text"    placeholder="Nombre" [(ngModel)]="nombre_repre1"></ion-input><br>
+                              <ion-input type="text"    placeholder="Apellidos" [(ngModel)]="apellidos_repre1"></ion-input><br>
+                              <ion-input type="text"    placeholder="Telefono" [(ngModel)]="telefono_repre1"></ion-input>
+
+
+                           </ion-item>
+
+
+                           <ion-item >   
+
+                              <ion-input type="text"    placeholder="Nombre" [(ngModel)]="nombre_repre2"></ion-input><br>
+                              <ion-input type="text"    placeholder="Apellidos" [(ngModel)]="apellidos_repre2"></ion-input><br>
+                              <ion-input type="text"    placeholder="Telefono" [(ngModel)]="telefono_repre2"></ion-input>
+
+
+                           </ion-item>
+
+                            <br><hr><br>
+
+
+                           <ion-label >Reportar si un representante se convirtió en funcionario</ion-label> <br>
+                           <button ion-button   (click)="reportar_representante()">Reportar</button>
+
+                          <br><hr><br>
+
+                       </ion-list>
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_funcionario()" >Guardar</button>
+                       </div>
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngSwitchCase="'2'" >
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Casilla</h3>
+                      
+                       <ion-list>
+
+
+                       <ion-item>
+                         <ion-label>¿Estan representantes de casilla?:</ion-label>
+                         <ion-toggle [(ngModel)]="switch_representantes_casilla"></ion-toggle>
+                       </ion-item>
+
+
+                       <ion-item>
+                         <ion-label>¿Aperturo casilla?:</ion-label>
+                         <ion-toggle [(ngModel)]="switch_apertura_casilla"></ion-toggle>
+                       </ion-item>
+
+
+                       <ion-item>
+                         <ion-label>*Hora de apertura de la casilla:</ion-label>
+                         <ion-datetime displayFormat="HH:mm" [(ngModel)]="hora_apertura"></ion-datetime>
+                       </ion-item>
+
+
+
+                        <ion-item>
+                          <ion-label>¿Estan los paquetes?:</ion-label>
+                          <ion-toggle [(ngModel)]="switch_paquetes_casilla"></ion-toggle>
+                        </ion-item>
+
+
+                       </ion-list>
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_hora_aper()" >Guardar</button>
+                       </div>
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+<ion-grid *ngSwitchCase="'3'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Flujo de votación</h3>
+                      
+                       <ion-list>
+
+
+
+                         
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>*Flujo 10:00</ion-label>
+                             <ion-input [(ngModel)]="flujo10" type="number" ></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>*Flujo 12:00</ion-label>
+                             <ion-input [(ngModel)]="flujo12" type="number" ></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>*Flujo 14:00</ion-label>
+                             <ion-input [(ngModel)]="flujo14" type="number" ></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>*Flujo 16:00</ion-label>
+                             <ion-input [(ngModel)]="flujo16" type="number" ></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>*Flujo 18:00</ion-label>
+                             <ion-input [(ngModel)]="flujo18" type="number" ></ion-input>
+                          </ion-item>
+
+                          
+
+                         
+
+                       </ion-list>
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_flujo()" >Guardar</button>
+                       </div>
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+
+<ion-grid *ngSwitchCase="'4'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Incidentes durante la jornada(opcional)</h3>
+                      
+                       <ion-list>
+
+                       <label>Puedes agregar 3 incidentes</label>
+   
+
+
+                          <ion-item>
+                             <img [src]="foto_incidente" *ngIf="foto_incidente" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_incidente()">
+                               Tomar foto 1 &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+                           <ion-item>
+                              <ion-label color="primary" floating>Nota o Comentario:</ion-label>
+                              <ion-input [(ngModel)]="comentario1" type="text"></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <img [src]="foto_incidente2" *ngIf="foto_incidente2" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_incidente2()">
+                               Tomar foto 2&nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+                           <ion-item>
+                              <ion-label color="primary" floating>Nota o Comentario:</ion-label>
+                              <ion-input [(ngModel)]="comentario2" type="text"></ion-input>
+                          </ion-item>
+
+
+                          <ion-item>
+                             <img [src]="foto_incidente3" *ngIf="foto_incidente3" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_incidente3()">
+                               Tomar foto 3&nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+                           <ion-item>
+                              <ion-label color="primary" floating>Nota o Comentario:</ion-label>
+                              <ion-input [(ngModel)]="comentario3" type="text"></ion-input>
+                          </ion-item>
+
+                       
+
+                       </ion-list>
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_incidente()" >Guardar</button>
+                       </div>
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngSwitchCase="'5'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Casilla</h3>
+                      
+                       <ion-list>
+
+                          <ion-item>
+                            <ion-label>*Hora de cierre de la casilla:</ion-label>
+                            <ion-datetime displayFormat="HH:mm" [(ngModel)]="hora_cierre"></ion-datetime>
+                          </ion-item>
+    
+                       </ion-list>
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_cierre()" >Guardar</button>
+                       </div>
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngSwitchCase="'6'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Actas</h3>
+
+                       <br><br>
+                      
+                       <h3>*Acta Presidente</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_presidente" *ngIf="foto_presidente" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_presidente()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+                       <h3>*Acta Jefe de la CDMX</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_jefe" *ngIf="foto_jefe" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_jefe()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+
+                       <h3>*Acta Senadores</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_senadores" *ngIf="foto_senadores" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_senadores()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+                       <h3>*Acta Diputados Federales</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_diputados_f" *ngIf="foto_diputados_f" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_diputados_f()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+                       <h3>*Acta Diputados Locales</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_diputados_l" *ngIf="foto_diputados_l" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_diputados_l()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+                       <h3>*Acta Alcaldias</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_alcaldias" *ngIf="foto_alcaldias" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_alcaldias()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list>
+
+
+                       <h3>*Sabana de resultados 1</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_sabana1" *ngIf="foto_sabana1" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_sabana1()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list>
+
+
+
+
+                       <h3>Sabana de resultados 2</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_sabana2" *ngIf="foto_sabana2" />
+                             <button  ion-button icon-left full type="button" (tap)="sabana2()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list>
+
+
+
+                       <h3>Acta de jornada notarial</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="acta_jornada_notarial" *ngIf="acta_jornada_notarial" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_jornada()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list>
+
+
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_actas()" >Guardar</button>
+                       </div>
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngSwitchCase="'7'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Cifras</h3>
+
+                       <br><br>
+                       
+                      
+
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorPRD == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_prd()">PRD</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button [ngStyle]="{'background-color': (colorPAN == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_pan()">PAN</button>
+                                </div>
+                       </div>
+
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorMC == '1') ? '#89FC63' : '#FF8A8A' }"  class="customBtn" (click)="modal_mc()">MC</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button [ngStyle]="{'background-color': (colorFRENTE == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_frente()" >C.FRENTE</button>
+                                </div>
+                       </div> 
+
+                       <br><br>
+                       
+                       
+                        
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorMORENA == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_morena()">MORENA</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button [ngStyle]="{'background-color': (colorPT == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_pt()">PT</button>
+                                </div>
+                       </div> 
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorPES == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_pes()" >PES</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button [ngStyle]="{'background-color': (colorJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_jhh()" >C. JHH</button>
+                                </div>
+                       </div>
+
+                       <br><br>
+                       
+                      
+
+
+
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorPRI == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_pri()">PRI</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button  [ngStyle]="{'background-color': (colorVERDE == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_verde()">VERDE</button>
+                                </div>
+                       </div> 
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button  [ngStyle]="{'background-color': (colorALIANZA == '1') ? '#89FC63' : '#FF8A8A' }"  class="customBtn" (click)="modal_nalianza()">N. ALIANZA</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button  [ngStyle]="{'background-color': (colorHUMANISTA == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_humanista()">HUMANISTA</button>
+                                </div>
+                       </div>
+
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorTMEXICO == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_todos_mexico()">C. T.P.MEXICO</button>
+                                </div>
+                       </div>  
+              
+                      
+                       <!--<ion-list>
+
+
+                          <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta presidente</ion-label>
+                             <ion-input [(ngModel)]="cifra_pre" type="number"   ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta jefe CDMX</ion-label>
+                             <ion-input [(ngModel)]="cifra_jefe" type="number" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta senadores</ion-label>
+                             <ion-input [(ngModel)]="cifra_sena" type="number" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta diputados federales</ion-label>
+                             <ion-input [(ngModel)]="cifra_di_f" type="number" ></ion-input>
+                          </ion-item>
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta diputados locales</ion-label>
+                             <ion-input [(ngModel)]="cifra_di_l" type="number" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta alcaldias</ion-label>
+                             <ion-input [(ngModel)]="cifra_alc" type="number" ></ion-input>
+                          </ion-item>
+                          
+
+                         
+
+                       </ion-list>
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_cifras_frente()" >Guardar</button>
+                       </div>-->
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngSwitchCase="'8'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Escritos de protesta</h3>
+                      
+                       <ion-list>
+
+
+                       <h3>Protesta1</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_escrito1" *ngIf="foto_escrito1" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_escrito1()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+
+                       <h3>Protesta2</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_escrito2" *ngIf="foto_escrito2" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_escrito2()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+
+                       <h3>Protesta3</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_escrito3" *ngIf="foto_escrito3" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_escrito3()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+                         
+                          
+
+                         
+
+                       </ion-list>
+
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_escritos()" >Guardar</button>
+                       </div>
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>
+
+<!--<ion-grid *ngSwitchCase="'9'">
+            <ion-row>
+                <ion-col>
+                <div>
+                       <h3>Cifras PRI</h3>
+                      
+                       <ion-list>
+
+
+                          
+                          <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta presidente</ion-label>
+                             <ion-input [(ngModel)]="cifra_pre_pri" type="number" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta jefe CDMX</ion-label>
+                             <ion-input [(ngModel)]="cifra_jefe_pri" type="number" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta senadores</ion-label>
+                             <ion-input [(ngModel)]="cifra_sena_pri" type="number" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta diputados federales</ion-label>
+                             <ion-input [(ngModel)]="cifra_di_f_pri" type="number" ></ion-input>
+                          </ion-item>
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta diputados locales</ion-label>
+                             <ion-input [(ngModel)]="cifra_di_l_pri" type="number" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta alcaldias</ion-label>
+                             <ion-input [(ngModel)]="cifra_alc_pri" type="number" ></ion-input>
+                          </ion-item>
+                          
+
+                         
+
+                       </ion-list>
+
+
+
+                       <div padding>
+                         <button ion-button block (click)="guardar_cifras_pri()" >Guardar</button>
+                       </div>
+
+
+                      </div>
+
+                    
+                        
+                  
+                </ion-col>
+            </ion-row>
+</ion-grid>-->
+
+
+
+</ion-content>

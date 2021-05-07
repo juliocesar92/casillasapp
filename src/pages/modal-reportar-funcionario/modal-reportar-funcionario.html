@@ -1,0 +1,59 @@
+<!--
+  Generated template for the ModalReportarFuncionarioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+ <ion-navbar color="casilla">
+    <ion-title>Reportar representante</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+<ion-list>
+
+
+
+<ion-item>
+   <ion-label color="primary" floating>Nombre</ion-label>
+   <ion-input [(ngModel)]="nombre_reporte" type="text" ></ion-input>
+</ion-item>
+
+<ion-item>
+   <ion-label color="primary" floating>Apellido Paterno</ion-label>
+   <ion-input [(ngModel)]="ape_pat_reporte" type="text" ></ion-input>
+</ion-item>
+
+
+<ion-item>
+   <ion-label color="primary" floating>Apellido Materno</ion-label>
+   <ion-input [(ngModel)]="ape_mat_reporte" type="text" ></ion-input>
+</ion-item>
+
+
+<ion-item>
+    <ion-label>Partido:</ion-label>
+    <ion-select [(ngModel)]="partido" interface="popover">
+        <ion-option  value="Frente">Frente</ion-option>
+        <ion-option  value="MORENA">MORENA</ion-option>
+        <ion-option  value="PRI">PRI</ion-option>
+    </ion-select>
+</ion-item>
+
+
+<button ion-button block  (click)="dismiss()"  >Reportar</button>
+
+</ion-list>
+
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,56 @@
+
+
+<ion-content padding>
+ 
+  <!--<ion-row class="login-logo">
+    <ion-col><img src="assets/imgs/LOGO-INE.png" /></ion-col>
+  </ion-row>-->
+ 
+  <ion-row class="login-form">
+    <ion-col>
+      <ion-list inset>
+
+      <img src="assets/imgs/Box-check.png" class="logo"/>
+
+       
+
+      <br>
+
+      <h4 align="center">SISCC</h4><br>
+
+      <br>
+ 
+        <ion-item>
+          <ion-label><ion-icon name="person"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="user" placeholder="usuario" type="text" value="{{remember}}"></ion-input>
+        </ion-item>
+
+
+             <!--<ion-checkbox  [(ngModel)]="remember_estado" [checked]="remember_estado" ></ion-checkbox>&nbsp; Recordar usuario-->
+     
+        <ion-item>
+          <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="password" placeholder="clave" type="password"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+             <ion-label>Recordar usuario</ion-label>
+            
+             <ion-checkbox  [(ngModel)]="remember_estado" [checked]="remember_estado" ></ion-checkbox>
+        </ion-item>
+ 
+      </ion-list>
+ 
+      <button ion-button (click)="entrar()" primary class="login-button">Entrar</button>
+ 
+    </ion-col>
+  </ion-row>
+ 
+   <!-- <ion-row>
+      <ion-col>
+        <button (click)="launchSignup()" class="create-account">Create an Account</button>
+      </ion-col>
+  </ion-row>-->
+ 
+</ion-content>

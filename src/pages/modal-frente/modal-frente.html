@@ -1,0 +1,67 @@
+<!--
+  Generated template for the ModalFrentePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="casilla">
+    <ion-title>Frente</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+<ion-list>
+
+
+  <ion-item>
+     <ion-label color="primary" floating>*Cifra acta presidente</ion-label>
+     <ion-input [(ngModel)]="cifra_pre" type="number"   ></ion-input>
+  </ion-item>
+
+
+   <ion-item>
+     <ion-label color="primary" floating>*Cifra acta jefe CDMX</ion-label>
+     <ion-input [(ngModel)]="cifra_jefe" type="number" ></ion-input>
+  </ion-item>
+
+
+   <ion-item>
+     <ion-label color="primary" floating>*Cifra acta senadores</ion-label>
+     <ion-input [(ngModel)]="cifra_sena" type="number" ></ion-input>
+  </ion-item>
+
+
+   <ion-item>
+     <ion-label color="primary" floating>*Cifra acta diputados federales</ion-label>
+     <ion-input [(ngModel)]="cifra_di_f" type="number" ></ion-input>
+  </ion-item>
+
+   <ion-item>
+     <ion-label color="primary" floating>*Cifra acta diputados locales</ion-label>
+     <ion-input [(ngModel)]="cifra_di_l" type="number" ></ion-input>
+  </ion-item>
+
+
+   <ion-item>
+     <ion-label color="primary" floating>*Cifra acta alcaldias</ion-label>
+     <ion-input [(ngModel)]="cifra_alc" type="number" ></ion-input>
+  </ion-item>
+  
+
+ 
+
+</ion-list>
+
+
+<div padding>
+ <button ion-button block (click)="guardar_cifras_frente()" >Guardar</button>
+</div>
+                       
+
+</ion-content>
