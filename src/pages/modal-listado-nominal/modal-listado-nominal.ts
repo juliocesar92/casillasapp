@@ -22,6 +22,7 @@ data:any;
 id_casilla:any;
 seccion:any;
 insertos:any;
+conteos:any;
 searchTerm:any;
 asistencia:any;
 
@@ -30,15 +31,18 @@ items = [];
 selectedCountry:any;
 id_asistente:any;
 
+total_ver:any;
+asistencia_ver:any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,private db: DbProvider) {
 
 
   this.id_casilla =  this.navParams.get('id_registro');
   this.seccion =  this.navParams.get('seccion');
-  this.items = ["Ram","gopi", "dravid"];
 
      this.getListado(0,0);
+     this.conteo_listado(this.seccion);
 
   }
 
@@ -119,6 +123,26 @@ this.viewCtrl.dismiss();
 
 
    }
+
+
+   conteo_listado(seccion){
+
+   this.db.consulta_conteo_listado_nominal(seccion)
+    .map(res => res.json())
+                   .subscribe(res => {
+                 this.conteos=res.data;
+
+                 this.total_ver=this.conteos.total;
+                 this.asistencia_ver=this.conteos.asistencia;
+                  
+                    }, error => {
+                   
+                      alert(error);
+                   });
+
+
+
+    }
 
 
  selectCountry(nombre,id) {

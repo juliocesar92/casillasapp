@@ -43,6 +43,26 @@ import { ModalPt } from '../pages/modal-pt/modal-pt';
 import { ModalTodosMexico } from '../pages/modal-todos-mexico/modal-todos-mexico';
 import { ModalVerde } from '../pages/modal-verde/modal-verde';
 
+//2021
+import { ModalCifras } from '../pages/modal-cifras/modal-cifras';
+import { ModalALIANZAMEXICO } from '../pages/modal-ALIANZA-MEXICO/modal-ALIANZA-MEXICO';
+import { ModalCCJHH } from '../pages/modal-CCJHH/modal-CCJHH';
+import { ModalFUERZAMEXICO } from '../pages/modal-FUERZA-MEXICO/modal-FUERZA-MEXICO';
+import { ModalPMC } from '../pages/modal-PMC/modal-PMC';
+import { ModalPMORENA } from '../pages/modal-PMORENA/modal-PMORENA';
+import { ModalPPAN } from '../pages/modal-PPAN/modal-PPAN';
+import { ModalPPRD } from '../pages/modal-PPRD/modal-PPRD';
+import { ModalPPRI } from '../pages/modal-PPRI/modal-PPRI';
+import { ModalPPT } from '../pages/modal-PPT/modal-PPT';
+import { ModalPRIPRD } from '../pages/modal-PRI-PRD/modal-PRI-PRD';
+import { ModalPVE } from '../pages/modal-PVE/modal-PVE';
+import { ModalRSP } from '../pages/modal-RSP/modal-RSP';
+
+
+
+                     
+
+
 
 
 
@@ -83,7 +103,21 @@ import { DbProvider } from '../providers/db/db';
     ModalPri,
     ModalPt,
     ModalTodosMexico,
-    ModalVerde
+    ModalVerde,
+
+ ModalALIANZAMEXICO,
+ ModalCCJHH,
+ ModalFUERZAMEXICO,
+ ModalPMC,          
+ ModalPMORENA,
+ ModalPPAN,
+ ModalPPRD,
+ ModalPPRI,
+ ModalPPT,                   
+ ModalPRIPRD,
+ ModalPVE,                 
+ ModalRSP,
+ ModalCifras
   ],
   imports: [
     BrowserModule,
@@ -118,7 +152,21 @@ import { DbProvider } from '../providers/db/db';
     ModalPri,
     ModalPt,
     ModalTodosMexico,
-    ModalVerde
+    ModalVerde,
+ 
+ ModalALIANZAMEXICO,
+ ModalCCJHH,
+ ModalFUERZAMEXICO,
+ ModalPMC,          
+ ModalPMORENA,
+ ModalPPAN,
+ ModalPPRD,
+ ModalPPRI,
+ ModalPPT,                   
+ ModalPRIPRD,
+ ModalPVE,                 
+ ModalRSP,
+ ModalCifras
   ],
   providers: [
     StatusBar,

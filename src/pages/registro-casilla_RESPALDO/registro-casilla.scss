@@ -1,0 +1,52 @@
+page-registro-casilla {
+
+
+.customBtn{
+    width:100px;
+}
+
+
+.masters {
+  background-color: #f4f4f4;
+}
+
+
+ .segment-button11 {
+    color: #FF8A8A !important;
+    text-transform: none !important;
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+    border: 0 !important;
+
+    &.activated, &.segment-activated {
+      border-top: 0;
+      border-right: 0;
+      border-bottom: 2px solid #FF8A8A !important;
+      border-left: 0;
+      color: #FF8A8A !important;
+      background: transparent !important;
+    }
+  }
+
+   .segment-button22 {
+    color: #89FC63 !important;
+    text-transform: none !important;
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+    border: 0 !important;
+
+    &.activated, &.segment-activated {
+      border-top: 0;
+      border-right: 0;
+      border-bottom: 2px solid #89FC63 !important;
+      border-left: 0;
+      color: #89FC63 !important;
+      background: transparent !important;
+    }
+  }
+
+
+
+}

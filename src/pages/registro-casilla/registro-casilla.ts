@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,LoadingController } from 'ionic-angular';
+import { NavController, NavParams,LoadingController,ActionSheetController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ModalController } from 'ionic-angular';
@@ -22,6 +22,24 @@ import { ModalPri } from '../modal-pri/modal-pri';
 import { ModalPt } from '../modal-pt/modal-pt';
 import { ModalTodosMexico } from '../modal-todos-mexico/modal-todos-mexico';
 import { ModalVerde } from '../modal-verde/modal-verde';
+
+//2021
+import { ModalCifras } from '../modal-cifras/modal-cifras';
+import { ModalALIANZAMEXICO } from '../modal-ALIANZA-MEXICO/modal-ALIANZA-MEXICO';
+import { ModalCCJHH } from '../modal-CCJHH/modal-CCJHH';
+import { ModalFUERZAMEXICO } from '../modal-FUERZA-MEXICO/modal-FUERZA-MEXICO';
+import { ModalPMC } from '../modal-PMC/modal-PMC';
+import { ModalPMORENA } from '../modal-PMORENA/modal-PMORENA';
+import { ModalPPAN } from '../modal-PPAN/modal-PPAN';
+import { ModalPPRD } from '../modal-PPRD/modal-PPRD';
+import { ModalPPRI } from '../modal-PPRI/modal-PPRI';
+import { ModalPPT } from '../modal-PPT/modal-PPT';
+import { ModalPRIPRD } from '../modal-PRI-PRD/modal-PRI-PRD';
+import { ModalPVE } from '../modal-PVE/modal-PVE';
+import { ModalRSP } from '../modal-RSP/modal-RSP';
+
+
+
 
 /**
  * Generated class for the RegistroCasilla page.
@@ -77,8 +95,20 @@ foto_senadores: any = '';
 foto_diputados_f: any = '';
 foto_diputados_l: any = '';
 foto_alcaldias: any = '';
+
+foto_alcalde_2021:any= '';
+foto_local18_2021:any= '';
+foto_local20_2021:any= '';
+foto_local23_2021:any= '';
+foto_fed06_2021:any= '';
+foto_fed16_2021:any= '';
+foto_fed17_2021:any= '';
+
+
+
 foto_sabana1:any='';
 foto_sabana2:any='';
+foto_sabana3:any='';
 acta_jornada_notarial:any='';
 
 hora_cierre:any;
@@ -225,6 +255,55 @@ colorHUMANISTA:any;
 colorTMEXICO:any;
 
 
+colorCCJHH:any;
+colorALMEXICO:any;
+colorPMC:any;
+colorPFM:any;
+colorRSP:any;
+colorPPRI:any;
+colorPPRD:any;
+colorPVE:any;
+colorPPAN:any;
+colorPMORENA:any;
+colorPPT:any;
+colorPRIPRD:any;
+
+
+cifra_alc_ccjhh:any;
+cifra_local18_ccjhh:any;
+cifra_local20_ccjhh:any;
+cifra_local23_ccjhh:any;
+cifra_fed16_ccjhh:any;
+cifra_fed17_ccjhh:any;
+
+cifra_alc_almexico:any;
+cifra_local18_almexico:any;
+cifra_fed16_almexico:any;
+cifra_fed17_almexico:any;
+
+cifra_alc_pmc:any;
+
+cifra_alc_pfm:any;
+cifra_fed16_pfm:any;
+
+cifra_alc_prsp:any;
+cifra_fed17_prsp:any;
+
+cifra_local20_priprd:any;
+
+cifra_local20_pve:any;
+
+cifra_local20_pan:any;
+
+cifra_local23_prd:any;
+
+cifra_local23_pri:any;
+
+cifra_fed06_morena:any;
+
+cifra_fed06_pt:any;
+
+
 
 switch_apertura_casilla: boolean = false;
 switch_funcionario_casilla: boolean = false;
@@ -237,7 +316,7 @@ estan_paquetes:any;
 
 public representantes:any=[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private db: DbProvider,private camera: Camera,public loadingCtrl: LoadingController,private statusBar: StatusBar,private geolocation: Geolocation,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private db: DbProvider,private camera: Camera,public loadingCtrl: LoadingController,private statusBar: StatusBar,private geolocation: Geolocation,public modalCtrl: ModalController,public actionSheetCtrl: ActionSheetController) {
 
 
    this.statusBar.backgroundColorByHexString('#99C7FF');
@@ -279,22 +358,22 @@ public representantes:any=[];
                 this.color6=res.data.save_actas;
                 this.color8=res.data.save_escrito;
                 
-                this.colorPRD=res.data.save_cifras_prd;
-                this.colorPAN=res.data.save_cifras_pan;
-                this.colorMC=res.data.save_cifras_mc;
-                this.colorFRENTE=res.data.save_cifras_frente;
-                this.colorMORENA=res.data.save_cifras_morena;
-                this.colorPT=res.data.save_cifras_pt;
-                this.colorPES=res.data.save_cifras_pes;
-                this.colorJHH=res.data.save_cifras_coalicion_jhh;
-                this.colorPRI=res.data.save_cifras_pri;
-                this.colorVERDE=res.data.save_cifras_verde;
-                this.colorALIANZA=res.data.save_cifras_nueva_alianza;
-                this.colorHUMANISTA=res.data.save_cifras_humanista;
-                this.colorTMEXICO=res.data.save_cifras_coalicion_todos_mexico;
+             
+                this.colorCCJHH=res.data.save_cifras_ccjhh;
+                this.colorALMEXICO=res.data.save_cifras_almexico;
+                this.colorPMC=res.data.save_cifras_pmc;
+                this.colorPFM=res.data.save_cifras_pfm;
+                this.colorRSP=res.data.save_cifras_rsp;
+                this.colorPPRI=res.data.save_cifras_ppri;
+                this.colorPPRD=res.data.save_cifras_pprd;
+                this.colorPVE=res.data.save_cifras_pve;
+                this.colorPPAN=res.data.save_cifras_ppan;
+                this.colorPMORENA=res.data.save_cifras_pmorena;
+                this.colorPPT=res.data.save_cifras_ppt;
+                this.colorPRIPRD=res.data.save_cifras_priprd;
 
                 //total partidos color
-                if(this.colorPRD==1&&this.colorPAN==1&&this.colorMC==1&&this.colorFRENTE==1&&this.colorMORENA==1&&this.colorPT==1&&this.colorPES==1&&this.colorJHH==1&&this.colorPRI==1&&this.colorVERDE==1&&this.colorALIANZA==1&&this.colorHUMANISTA==1&&this.colorTMEXICO==1){
+                if(this.colorJHH==1){
                 this.color7=1;
                 }
 
@@ -351,129 +430,22 @@ public representantes:any=[];
                 this.comentario3= res.data.comentario3_ins;
        
                 //fotos actas
-                this.foto_presidente= res.data.acta_presidente_foto;
-                this.foto_jefe= res.data.acta_jefe_foto;
-                this.foto_senadores= res.data.acta_senadores_foto;
-                this.foto_diputados_f= res.data.acta_diputado_f_foto;
-                this.foto_diputados_l= res.data.acta_diputado_l_foto;
-                this.foto_alcaldias= res.data.acta_alcaldia_foto;
+                this.foto_alcalde_2021=res.data.acta_alcalde_2021;
+                this.foto_local18_2021=res.data.acta_local18;
+                this.foto_local20_2021=res.data.acta_local20;
+                this.foto_local23_2021=res.data.acta_local23;
+                this.foto_fed06_2021=res.data.acta_fed06;
+                this.foto_fed16_2021=res.data.acta_fed16;
+                this.foto_fed17_2021=res.data.acta_fed17;
+
                 this.foto_sabana1=res.data.sabana_result1;
                 this.foto_sabana2=res.data.sabana_result2;
+                this.foto_sabana3=res.data.sabana_result3;
                 this.acta_jornada_notarial=res.data.acta_jornada_notarial;
 
                 this.hora_cierre= res.data.hora_cierre_casilla;
 
-                //cifras
-                //cifra prd
-                this.cifra_pre_prd=res.data.cifra_prd_presidente;
-                this.cifra_jefe_prd=res.data.cifra_prd_jefe;
-                this.cifra_sena_prd=res.data.cifra_prd_senador;
-                this.cifra_di_f_prd=res.data.cifra_prd_diputado_f;
-                this.cifra_di_l_prd=res.data.cifra_prd_diputado_l;
-                this.cifra_alc_prd=res.data.cifra_prd_alcaldia;
-
-
-                //cifra pan
-                this.cifra_pre_pan=res.data.cifra_prd_presidente;
-                this.cifra_jefe_pan=res.data.cifra_pan_jefe;
-                this.cifra_sena_pan=res.data.cifra_pan_senador;
-                this.cifra_di_f_pan=res.data.cifra_pan_diputado_f;
-                this.cifra_di_l_pan=res.data.cifra_pan_diputado_l;
-                this.cifra_alc_pan=res.data.cifra_pan_alcaldia;
-
-                //cifra mc
-                this.cifra_pre_mc=res.data.cifra_mc_presidente;
-                this.cifra_jefe_mc=res.data.cifra_mc_jefe;
-                this.cifra_sena_mc=res.data.cifra_mc_senador;
-                this.cifra_di_f_mc=res.data.cifra_mc_diputado_f;
-                this.cifra_di_l_mc=res.data.cifra_mc_diputado_l;
-                this.cifra_alc_mc=res.data.cifra_mc_alcaldia;
-
-                //frente
-                this.cifra_pre= res.data.cifra_frente_presidente;
-                this.cifra_jefe= res.data.cifra_frente_jefe;
-                this.cifra_sena= res.data.cifra_frente_senador;
-                this.cifra_di_f= res.data.cifra_frente_diputado_f;
-                this.cifra_di_l= res.data.cifra_frente_diputado_l;
-                this.cifra_alc= res.data.cifra_frente_alcaldia;
-
-
-                //morena
-                this.cifra_pre_morena= res.data.cifra_morena_presidente;
-                this.cifra_jefe_morena= res.data.cifra_morena_jefe;
-                this.cifra_sena_morena= res.data.cifra_morena_senador;
-                this.cifra_di_f_morena= res.data.cifra_morena_diputado_f;
-                this.cifra_di_l_morena= res.data.cifra_morena_diputado_l;
-                this.cifra_alc_morena= res.data.cifra_morena_alcaldia;
-
-
-                //cifra pt
-                this.cifra_pre_pt=res.data.cifra_pt_presidente;
-                this.cifra_jefe_pt=res.data.cifra_pt_jefe;
-                this.cifra_sena_pt=res.data.cifra_pt_senador;
-                this.cifra_di_f_pt=res.data.cifra_pt_diputado_f;
-                this.cifra_di_l_pt=res.data.cifra_pt_diputado_l;
-                this.cifra_alc_pt=res.data.cifra_pt_alcaldia;
-
-
-                //cifra pes
-                this.cifra_pre_pes=res.data.cifra_pes_presidente;
-                this.cifra_jefe_pes=res.data.cifra_pes_jefe;
-                this.cifra_sena_pes=res.data.cifra_pes_senador;
-                this.cifra_di_f_pes=res.data.cifra_pes_diputado_f;
-                this.cifra_di_l_pes=res.data.cifra_pes_diputado_l;
-                this.cifra_alc_pes=res.data.cifra_pes_alcaldia;
-
-
-                //cifra jhh
-                this.cifra_pre_jhh=res.data.cifra_jhh_presidente;
-                this.cifra_jefe_jhh=res.data.cifra_jhh_jefe;
-                this.cifra_sena_jhh=res.data.cifra_jhh_senador;
-                this.cifra_di_f_jhh=res.data.cifra_jhh_diputado_f;
-                this.cifra_di_l_jhh=res.data.cifra_jhh_diputado_l;
-                this.cifra_alc_jhh=res.data.cifra_jhh_alcaldia;
-
-                //cifra pri
-                this.cifra_pre_pri= res.data.cifra_pri_presidente;
-                this.cifra_jefe_pri= res.data.cifra_pri_jefe;
-                this.cifra_sena_pri= res.data.cifra_pri_senador;
-                this.cifra_di_f_pri= res.data.cifra_pri_diputado_f;
-                this.cifra_di_l_pri= res.data.cifra_pri_diputado_l;
-                this.cifra_alc_pri= res.data.cifra_pri_alcaldia;
-
-                //cifra verde
-                this.cifra_pre_verde= res.data.cifra_verde_presidente;
-                this.cifra_jefe_verde= res.data.cifra_verde_jefe;
-                this.cifra_sena_verde= res.data.cifra_verde_senador;
-                this.cifra_di_f_verde= res.data.cifra_verde_diputado_f;
-                this.cifra_di_l_verde= res.data.cifra_verde_diputado_l;
-                this.cifra_alc_verde= res.data.cifra_verde_alcaldia;
-
-                //cifra alianza
-                this.cifra_pre_alianza= res.data.cifra_nalianza_presidente;
-                this.cifra_jefe_alianza= res.data.cifra_nalianza_jefe;
-                this.cifra_sena_alianza= res.data.cifra_nalianza_senador;
-                this.cifra_di_f_alianza= res.data.cifra_nalianza_diputado_f;
-                this.cifra_di_l_alianza= res.data.cifra_nalianza_diputado_l;
-                this.cifra_alc_alianza= res.data.cifra_nalianza_alcaldia;
-
-                //cifra humanista
-                this.cifra_pre_humanista=res.data.cifra_humanista_presidente;
-                this.cifra_jefe_humanista=res.data.cifra_humanista_jefe;
-                this.cifra_sena_humanista=res.data.cifra_humanista_senador;
-                this.cifra_di_f_humanista=res.data.cifra_humanista_diputado_f;
-                this.cifra_di_l_humanista=res.data.cifra_humanista_diputado_l;
-                this.cifra_alc_humanista=res.data.cifra_humanista_alcaldia;
-
-                
-                //cifra t_mexico
-                this.cifra_pre_t_mexico=res.data.cifra_todos_m_presidente;
-                this.cifra_jefe_t_mexico=res.data.cifra_todos_m_jefe;
-                this.cifra_sena_t_mexico=res.data.cifra_todos_m_senador;
-                this.cifra_di_f_t_mexico=res.data.cifra_todos_m_diputado_f;
-                this.cifra_di_l_t_mexico=res.data.cifra_todos_m_diputado_l;
-                this.cifra_alc_t_mexico=res.data.cifra_todos_m_alcaldia;
-
+              
                 this.foto_escrito1=res.data.escrito1;
                 this.foto_escrito2=res.data.escrito2;
                 this.foto_escrito3=res.data.escrito3;
@@ -530,70 +502,747 @@ public representantes:any=[];
 
     sacarFoto_incidente(){
 
-       let cameraOptions : CameraOptions = {
-           quality: 50,
-           encodingType: this.camera.EncodingType.JPEG,
-           targetWidth: 800,
-           targetHeight: 600,
-           destinationType: this.camera.DestinationType.DATA_URL,
-           sourceType: this.camera.PictureSourceType.CAMERA,
-           correctOrientation: true
-       }
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Subir foto',
+      cssClass: 'action-sheets-basic-page',
+      buttons: [
+        {
+          text: 'Abrir camara',
+          icon:  'camera',
+          handler: () => {
+          
+
+          let cameraOptions : CameraOptions = {
+              quality: 50,
+              encodingType: this.camera.EncodingType.JPEG,
+              targetWidth: 800,
+              targetHeight: 600,
+              destinationType: this.camera.DestinationType.DATA_URL,
+              sourceType: this.camera.PictureSourceType.CAMERA,
+              correctOrientation: true
+          }
 
 
-       this.camera.getPicture(cameraOptions).then((imageData) => {
-         // imageData is a base64 encoded string
-           this.foto_incidente = "data:image/jpeg;base64," + imageData;
-       }, (err) => {
-           console.log(err);
-       });
+          this.camera.getPicture(cameraOptions).then((imageData) => {
+            // imageData is a base64 encoded string
+              this.foto_incidente = "data:image/jpeg;base64," + imageData;
+          }, (err) => {
+              console.log(err);
+          });
+
+
+          }
+        },
+        {
+          text: 'Abrir galeria',
+          icon:  'image',
+          handler: () => {
+            //console.log('Archive clicked');
+            
+
+           let cameraOptions : CameraOptions = {
+               quality: 50,
+               encodingType: this.camera.EncodingType.JPEG,
+               targetWidth: 800,
+               targetHeight: 600,
+               destinationType: this.camera.DestinationType.DATA_URL,
+               sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+               correctOrientation: true,
+               saveToPhotoAlbum:false
+           }
+
+
+           this.camera.getPicture(cameraOptions).then((imageData) => {
+             // imageData is a base64 encoded string
+               this.foto_incidente = "data:image/jpeg;base64," + imageData;
+           }, (err) => {
+               console.log(err);
+           });
+
+
+          }
+        },
+        {
+          text:  'Cancelar',
+          role: 'cancel',
+          icon: 'close' ,
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+
+
      }
 
 
      sacarFoto_incidente2(){
 
-        let cameraOptions : CameraOptions = {
-            quality: 50,
-            encodingType: this.camera.EncodingType.JPEG,
-            targetWidth: 800,
-            targetHeight: 600,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            sourceType: this.camera.PictureSourceType.CAMERA,
-            correctOrientation: true
-        }
+     let actionSheet = this.actionSheetCtrl.create({
+       title: 'Subir foto',
+       cssClass: 'action-sheets-basic-page',
+       buttons: [
+         {
+           text: 'Abrir camara',
+           icon:  'camera',
+           handler: () => {
+            //
+            let cameraOptions : CameraOptions = {
+                quality: 50,
+                encodingType: this.camera.EncodingType.JPEG,
+                targetWidth: 800,
+                targetHeight: 600,
+                destinationType: this.camera.DestinationType.DATA_URL,
+                sourceType: this.camera.PictureSourceType.CAMERA,
+                correctOrientation: true
+            }
 
 
-        this.camera.getPicture(cameraOptions).then((imageData) => {
-          // imageData is a base64 encoded string
-            this.foto_incidente2 = "data:image/jpeg;base64," + imageData;
-        }, (err) => {
-            console.log(err);
-        });
+            this.camera.getPicture(cameraOptions).then((imageData) => {
+              // imageData is a base64 encoded string
+                this.foto_incidente2 = "data:image/jpeg;base64," + imageData;
+            }, (err) => {
+                console.log(err);
+            });
+           }
+         },
+         {
+           text: 'Abrir galeria',
+           icon:  'image',
+           handler: () => {
+             //console.log('Archive clicked');
+             let cameraOptions : CameraOptions = {
+                 quality: 50,
+                 encodingType: this.camera.EncodingType.JPEG,
+                 targetWidth: 800,
+                 targetHeight: 600,
+                 destinationType: this.camera.DestinationType.DATA_URL,
+                 sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                 correctOrientation: true,
+                 saveToPhotoAlbum:false
+             }
+
+
+             this.camera.getPicture(cameraOptions).then((imageData) => {
+               // imageData is a base64 encoded string
+                 this.foto_incidente2 = "data:image/jpeg;base64," + imageData;
+             }, (err) => {
+                 console.log(err);
+             });
+             
+
+             
+           }
+         },
+         {
+           text:  'Cancelar',
+           role: 'cancel',
+           icon: 'close' ,
+           handler: () => {
+             console.log('Cancel clicked');
+           }
+         }
+       ]
+     });
+     actionSheet.present()
+
+
       }
 
 
       sacarFoto_incidente3(){
 
-         let cameraOptions : CameraOptions = {
-             quality: 50,
-             encodingType: this.camera.EncodingType.JPEG,
-             targetWidth: 800,
-             targetHeight: 600,
-             destinationType: this.camera.DestinationType.DATA_URL,
-             sourceType: this.camera.PictureSourceType.CAMERA,
-             correctOrientation: true
-         }
+
+      let actionSheet = this.actionSheetCtrl.create({
+        title: 'Subir foto',
+        cssClass: 'action-sheets-basic-page',
+        buttons: [
+          {
+            text: 'Abrir camara',
+            icon:  'camera',
+            handler: () => {
+             //
+             let cameraOptions : CameraOptions = {
+                 quality: 50,
+                 encodingType: this.camera.EncodingType.JPEG,
+                 targetWidth: 800,
+                 targetHeight: 600,
+                 destinationType: this.camera.DestinationType.DATA_URL,
+                 sourceType: this.camera.PictureSourceType.CAMERA,
+                 correctOrientation: true
+             }
 
 
-         this.camera.getPicture(cameraOptions).then((imageData) => {
-           // imageData is a base64 encoded string
-             this.foto_incidente3 = "data:image/jpeg;base64," + imageData;
-         }, (err) => {
-             console.log(err);
-         });
+             this.camera.getPicture(cameraOptions).then((imageData) => {
+               // imageData is a base64 encoded string
+                 this.foto_incidente3 = "data:image/jpeg;base64," + imageData;
+             }, (err) => {
+                 console.log(err);
+             });
+
+            }
+          },
+          {
+            text: 'Abrir galeria',
+            icon:  'image',
+            handler: () => {
+              //console.log('Archive clicked');
+              
+
+              let cameraOptions : CameraOptions = {
+                  quality: 50,
+                  encodingType: this.camera.EncodingType.JPEG,
+                  targetWidth: 800,
+                  targetHeight: 600,
+                  destinationType: this.camera.DestinationType.DATA_URL,
+                  sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                  correctOrientation: true,
+                  saveToPhotoAlbum:false
+              }
+
+
+              this.camera.getPicture(cameraOptions).then((imageData) => {
+                // imageData is a base64 encoded string
+                  this.foto_incidente3 = "data:image/jpeg;base64," + imageData;
+              }, (err) => {
+                  console.log(err);
+              });
+
+
+            }
+          },
+          {
+            text:  'Cancelar',
+            role: 'cancel',
+            icon: 'close' ,
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          }
+        ]
+      });
+      actionSheet.present();
+
+
+
+
        }
+       
+
+         sacarFoto_alcalde_2021(){
 
 
+         let actionSheet = this.actionSheetCtrl.create({
+           title: 'Subir foto',
+           cssClass: 'action-sheets-basic-page',
+           buttons: [
+             {
+               text: 'Abrir camara',
+               icon:  'camera',
+               handler: () => {
+                //
+               let cameraOptions : CameraOptions = {
+                   quality: 50,
+                   encodingType: this.camera.EncodingType.JPEG,
+                   targetWidth: 800,
+                   targetHeight: 600,
+                   destinationType: this.camera.DestinationType.DATA_URL,
+                   sourceType: this.camera.PictureSourceType.CAMERA,
+                   correctOrientation: true
+               }
+
+
+               this.camera.getPicture(cameraOptions).then((imageData) => {
+                 // imageData is a base64 encoded string
+                   this.foto_alcalde_2021 = "data:image/jpeg;base64," + imageData;
+               }, (err) => {
+                   console.log(err);
+               });
+
+               }
+             },
+             {
+               text: 'Abrir galeria',
+               icon:  'image',
+               handler: () => {
+                 //console.log('Archive clicked');
+                 
+
+                 let cameraOptions : CameraOptions = {
+                     quality: 50,
+                     encodingType: this.camera.EncodingType.JPEG,
+                     targetWidth: 800,
+                     targetHeight: 600,
+                     destinationType: this.camera.DestinationType.DATA_URL,
+                     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                     correctOrientation: true,
+                     saveToPhotoAlbum:false
+                 }
+
+
+                 this.camera.getPicture(cameraOptions).then((imageData) => {
+                   // imageData is a base64 encoded string
+                     this.foto_alcalde_2021 = "data:image/jpeg;base64," + imageData;
+                 }, (err) => {
+                     console.log(err);
+                 });
+
+
+               }
+             },
+             {
+               text:  'Cancelar',
+               role: 'cancel',
+               icon: 'close' ,
+               handler: () => {
+                 console.log('Cancel clicked');
+               }
+             }
+           ]
+         });
+         actionSheet.present();
+
+
+
+       }
+         sacarFoto_local18(){
+
+         let actionSheet = this.actionSheetCtrl.create({
+           title: 'Subir foto',
+           cssClass: 'action-sheets-basic-page',
+           buttons: [
+             {
+               text: 'Abrir camara',
+               icon:  'camera',
+               handler: () => {
+                //
+                let cameraOptions : CameraOptions = {
+                    quality: 50,
+                    encodingType: this.camera.EncodingType.JPEG,
+                    targetWidth: 800,
+                    targetHeight: 600,
+                    destinationType: this.camera.DestinationType.DATA_URL,
+                    sourceType: this.camera.PictureSourceType.CAMERA,
+                    correctOrientation: true
+                }
+
+
+                this.camera.getPicture(cameraOptions).then((imageData) => {
+                  // imageData is a base64 encoded string
+                    this.foto_local18_2021 = "data:image/jpeg;base64," + imageData;
+                }, (err) => {
+                    console.log(err);
+                });
+               }
+             },
+             {
+               text: 'Abrir galeria',
+               icon:  'image',
+               handler: () => {
+                 //console.log('Archive clicked');
+                 
+
+                 let cameraOptions : CameraOptions = {
+                     quality: 50,
+                     encodingType: this.camera.EncodingType.JPEG,
+                     targetWidth: 800,
+                     targetHeight: 600,
+                     destinationType: this.camera.DestinationType.DATA_URL,
+                     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                     correctOrientation: true,
+                     saveToPhotoAlbum:false
+                 }
+
+
+                 this.camera.getPicture(cameraOptions).then((imageData) => {
+                   // imageData is a base64 encoded string
+                     this.foto_local18_2021 = "data:image/jpeg;base64," + imageData;
+                 }, (err) => {
+                     console.log(err);
+                 });
+
+               }
+             },
+             {
+               text:  'Cancelar',
+               role: 'cancel',
+               icon: 'close' ,
+               handler: () => {
+                 console.log('Cancel clicked');
+               }
+             }
+           ]
+         });
+         actionSheet.present();
+
+
+  
+       }
+          sacarFoto_local20(){
+
+
+          let actionSheet = this.actionSheetCtrl.create({
+            title: 'Subir foto',
+            cssClass: 'action-sheets-basic-page',
+            buttons: [
+              {
+                text: 'Abrir camara',
+                icon:  'camera',
+                handler: () => {
+                 //
+                 let cameraOptions : CameraOptions = {
+                     quality: 50,
+                     encodingType: this.camera.EncodingType.JPEG,
+                     targetWidth: 800,
+                     targetHeight: 600,
+                     destinationType: this.camera.DestinationType.DATA_URL,
+                     sourceType: this.camera.PictureSourceType.CAMERA,
+                     correctOrientation: true
+                 }
+
+
+                 this.camera.getPicture(cameraOptions).then((imageData) => {
+                   // imageData is a base64 encoded string
+                     this.foto_local20_2021 = "data:image/jpeg;base64," + imageData;
+                 }, (err) => {
+                     console.log(err);
+                 });
+                }
+              },
+              {
+                text: 'Abrir galeria',
+                icon:  'image',
+                handler: () => {
+                  //console.log('Archive clicked');
+                  
+
+                  let cameraOptions : CameraOptions = {
+                      quality: 50,
+                      encodingType: this.camera.EncodingType.JPEG,
+                      targetWidth: 800,
+                      targetHeight: 600,
+                      destinationType: this.camera.DestinationType.DATA_URL,
+                      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                      correctOrientation: true,
+                      saveToPhotoAlbum:false
+                  }
+
+
+                  this.camera.getPicture(cameraOptions).then((imageData) => {
+                    // imageData is a base64 encoded string
+                      this.foto_local20_2021 = "data:image/jpeg;base64," + imageData;
+                  }, (err) => {
+                      console.log(err);
+                  });
+
+                }
+              },
+              {
+                text:  'Cancelar',
+                role: 'cancel',
+                icon: 'close' ,
+                handler: () => {
+                  console.log('Cancel clicked');
+                }
+              }
+            ]
+          });
+          actionSheet.present();
+
+
+       }
+         sacarFoto_local23(){
+
+         let actionSheet = this.actionSheetCtrl.create({
+           title: 'Subir foto',
+           cssClass: 'action-sheets-basic-page',
+           buttons: [
+             {
+               text: 'Abrir camara',
+               icon:  'camera',
+               handler: () => {
+                //
+                let cameraOptions : CameraOptions = {
+                    quality: 50,
+                    encodingType: this.camera.EncodingType.JPEG,
+                    targetWidth: 800,
+                    targetHeight: 600,
+                    destinationType: this.camera.DestinationType.DATA_URL,
+                    sourceType: this.camera.PictureSourceType.CAMERA,
+                    correctOrientation: true
+                }
+
+
+                this.camera.getPicture(cameraOptions).then((imageData) => {
+                  // imageData is a base64 encoded string
+                    this.foto_local23_2021 = "data:image/jpeg;base64," + imageData;
+                }, (err) => {
+                    console.log(err);
+                });
+               }
+             },
+             {
+               text: 'Abrir galeria',
+               icon:  'image',
+               handler: () => {
+                 //console.log('Archive clicked');
+                 
+
+                 let cameraOptions : CameraOptions = {
+                     quality: 50,
+                     encodingType: this.camera.EncodingType.JPEG,
+                     targetWidth: 800,
+                     targetHeight: 600,
+                     destinationType: this.camera.DestinationType.DATA_URL,
+                     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                     correctOrientation: true,
+                     saveToPhotoAlbum:false
+                 }
+
+
+                 this.camera.getPicture(cameraOptions).then((imageData) => {
+                   // imageData is a base64 encoded string
+                     this.foto_local23_2021 = "data:image/jpeg;base64," + imageData;
+                 }, (err) => {
+                     console.log(err);
+                 });
+
+
+               }
+             },
+             {
+               text:  'Cancelar',
+               role: 'cancel',
+               icon: 'close' ,
+               handler: () => {
+                 console.log('Cancel clicked');
+               }
+             }
+           ]
+         });
+         actionSheet.present();
+
+
+       }
+         sacarFoto_fed06(){
+
+         let actionSheet = this.actionSheetCtrl.create({
+           title: 'Subir foto',
+           cssClass: 'action-sheets-basic-page',
+           buttons: [
+             {
+               text: 'Abrir camara',
+               icon:  'camera',
+               handler: () => {
+                //
+               let cameraOptions : CameraOptions = {
+                   quality: 50,
+                   encodingType: this.camera.EncodingType.JPEG,
+                   targetWidth: 800,
+                   targetHeight: 600,
+                   destinationType: this.camera.DestinationType.DATA_URL,
+                   sourceType: this.camera.PictureSourceType.CAMERA,
+                   correctOrientation: true
+               }
+
+
+               this.camera.getPicture(cameraOptions).then((imageData) => {
+                 // imageData is a base64 encoded string
+                   this.foto_fed06_2021 = "data:image/jpeg;base64," + imageData;
+               }, (err) => {
+                   console.log(err);
+               });
+               }
+             },
+             {
+               text: 'Abrir galeria',
+               icon:  'image',
+               handler: () => {
+                 //console.log('Archive clicked');
+                 
+
+                 let cameraOptions : CameraOptions = {
+                     quality: 50,
+                     encodingType: this.camera.EncodingType.JPEG,
+                     targetWidth: 800,
+                     targetHeight: 600,
+                     destinationType: this.camera.DestinationType.DATA_URL,
+                     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                     correctOrientation: true,
+                     saveToPhotoAlbum:false
+                 }
+
+
+                 this.camera.getPicture(cameraOptions).then((imageData) => {
+                   // imageData is a base64 encoded string
+                     this.foto_fed06_2021 = "data:image/jpeg;base64," + imageData;
+                 }, (err) => {
+                     console.log(err);
+                 });
+               }
+             },
+             {
+               text:  'Cancelar',
+               role: 'cancel',
+               icon: 'close' ,
+               handler: () => {
+                 console.log('Cancel clicked');
+               }
+             }
+           ]
+         });
+         actionSheet.present();
+
+
+       }
+          sacarFoto_fed16(){
+
+
+          let actionSheet = this.actionSheetCtrl.create({
+            title: 'Subir foto',
+            cssClass: 'action-sheets-basic-page',
+            buttons: [
+              {
+                text: 'Abrir camara',
+                icon:  'camera',
+                handler: () => {
+                 //
+                 let cameraOptions : CameraOptions = {
+                     quality: 50,
+                     encodingType: this.camera.EncodingType.JPEG,
+                     targetWidth: 800,
+                     targetHeight: 600,
+                     destinationType: this.camera.DestinationType.DATA_URL,
+                     sourceType: this.camera.PictureSourceType.CAMERA,
+                     correctOrientation: true
+                 }
+
+
+                 this.camera.getPicture(cameraOptions).then((imageData) => {
+                   // imageData is a base64 encoded string
+                     this.foto_fed16_2021 = "data:image/jpeg;base64," + imageData;
+                 }, (err) => {
+                     console.log(err);
+                 });
+                }
+              },
+              {
+                text: 'Abrir galeria',
+                icon:  'image',
+                handler: () => {
+                  //console.log('Archive clicked');
+                  
+
+                  let cameraOptions : CameraOptions = {
+                      quality: 50,
+                      encodingType: this.camera.EncodingType.JPEG,
+                      targetWidth: 800,
+                      targetHeight: 600,
+                      destinationType: this.camera.DestinationType.DATA_URL,
+                      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                      correctOrientation: true,
+                      saveToPhotoAlbum:false
+                  }
+
+
+                  this.camera.getPicture(cameraOptions).then((imageData) => {
+                    // imageData is a base64 encoded string
+                      this.foto_fed16_2021 = "data:image/jpeg;base64," + imageData;
+                  }, (err) => {
+                      console.log(err);
+                  });
+
+                }
+              },
+              {
+                text:  'Cancelar',
+                role: 'cancel',
+                icon: 'close' ,
+                handler: () => {
+                  console.log('Cancel clicked');
+                }
+              }
+            ]
+          });
+          actionSheet.present();
+
+
+       }
+         sacarFoto_fed17(){
+
+         let actionSheet = this.actionSheetCtrl.create({
+           title: 'Subir foto',
+           cssClass: 'action-sheets-basic-page',
+           buttons: [
+             {
+               text: 'Abrir camara',
+               icon:  'camera',
+               handler: () => {
+                //
+                let cameraOptions : CameraOptions = {
+                    quality: 50,
+                    encodingType: this.camera.EncodingType.JPEG,
+                    targetWidth: 800,
+                    targetHeight: 600,
+                    destinationType: this.camera.DestinationType.DATA_URL,
+                    sourceType: this.camera.PictureSourceType.CAMERA,
+                    correctOrientation: true
+                }
+
+
+                this.camera.getPicture(cameraOptions).then((imageData) => {
+                  // imageData is a base64 encoded string
+                    this.foto_fed17_2021 = "data:image/jpeg;base64," + imageData;
+                }, (err) => {
+                    console.log(err);
+                });
+               }
+             },
+             {
+               text: 'Abrir galeria',
+               icon:  'image',
+               handler: () => {
+                 //console.log('Archive clicked');
+                 
+
+                 let cameraOptions : CameraOptions = {
+                     quality: 50,
+                     encodingType: this.camera.EncodingType.JPEG,
+                     targetWidth: 800,
+                     targetHeight: 600,
+                     destinationType: this.camera.DestinationType.DATA_URL,
+                     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                     correctOrientation: true,
+                     saveToPhotoAlbum:false
+                 }
+
+
+                 this.camera.getPicture(cameraOptions).then((imageData) => {
+                   // imageData is a base64 encoded string
+                     this.foto_fed17_2021 = "data:image/jpeg;base64," + imageData;
+                 }, (err) => {
+                     console.log(err);
+                 });
+
+               }
+             },
+             {
+               text:  'Cancelar',
+               role: 'cancel',
+               icon: 'close' ,
+               handler: () => {
+                 console.log('Cancel clicked');
+               }
+             }
+           ]
+         });
+         actionSheet.present();
+
+
+       }
+/*
        sacarFoto_presidente(){
 
        let cameraOptions : CameraOptions = {
@@ -726,26 +1375,78 @@ public representantes:any=[];
              });
            }
 
-
+*/
            sacarFoto_sabana1(){
 
-                let cameraOptions : CameraOptions = {
-                    quality: 50,
-                    encodingType: this.camera.EncodingType.JPEG,
-                    targetWidth: 800,
-                    targetHeight: 600,
-                    destinationType: this.camera.DestinationType.DATA_URL,
-                    sourceType: this.camera.PictureSourceType.CAMERA,
-                    correctOrientation: true
-                }
+           let actionSheet = this.actionSheetCtrl.create({
+             title: 'Subir foto',
+             cssClass: 'action-sheets-basic-page',
+             buttons: [
+               {
+                 text: 'Abrir camara',
+                 icon:  'camera',
+                 handler: () => {
+                  //
+                  let cameraOptions : CameraOptions = {
+                      quality: 50,
+                      encodingType: this.camera.EncodingType.JPEG,
+                      targetWidth: 800,
+                      targetHeight: 600,
+                      destinationType: this.camera.DestinationType.DATA_URL,
+                      sourceType: this.camera.PictureSourceType.CAMERA,
+                      correctOrientation: true
+                  }
 
 
-                this.camera.getPicture(cameraOptions).then((imageData) => {
-                  // imageData is a base64 encoded string
-                    this.foto_sabana1 = "data:image/jpeg;base64," + imageData;
-                }, (err) => {
-                    console.log(err);
-                });
+                  this.camera.getPicture(cameraOptions).then((imageData) => {
+                    // imageData is a base64 encoded string
+                      this.foto_sabana1 = "data:image/jpeg;base64," + imageData;
+                  }, (err) => {
+                      console.log(err);
+                  });
+                 }
+               },
+               {
+                 text: 'Abrir galeria',
+                 icon:  'image',
+                 handler: () => {
+                   //console.log('Archive clicked');
+                   
+
+                   let cameraOptions : CameraOptions = {
+                       quality: 50,
+                       encodingType: this.camera.EncodingType.JPEG,
+                       targetWidth: 800,
+                       targetHeight: 600,
+                       destinationType: this.camera.DestinationType.DATA_URL,
+                       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                       correctOrientation: true,
+                       saveToPhotoAlbum:false
+                   }
+
+
+                   this.camera.getPicture(cameraOptions).then((imageData) => {
+                     // imageData is a base64 encoded string
+                       this.foto_sabana1 = "data:image/jpeg;base64," + imageData;
+                   }, (err) => {
+                       console.log(err);
+                   });
+
+                 }
+               },
+               {
+                 text:  'Cancelar',
+                 role: 'cancel',
+                 icon: 'close' ,
+                 handler: () => {
+                   console.log('Cancel clicked');
+                 }
+               }
+             ]
+           });
+           actionSheet.present();
+
+
               }
 
 
@@ -771,10 +1472,7 @@ public representantes:any=[];
                  }
 
 
-
-
-
-                 sacarFoto_jornada(){
+                 sacarFoto_sabana3(){
 
                       let cameraOptions : CameraOptions = {
                           quality: 50,
@@ -789,10 +1487,89 @@ public representantes:any=[];
 
                       this.camera.getPicture(cameraOptions).then((imageData) => {
                         // imageData is a base64 encoded string
-                          this.acta_jornada_notarial = "data:image/jpeg;base64," + imageData;
+                          this.foto_sabana3 = "data:image/jpeg;base64," + imageData;
                       }, (err) => {
                           console.log(err);
                       });
+                    }
+
+
+
+
+
+                 sacarFoto_jornada(){
+
+                 let actionSheet = this.actionSheetCtrl.create({
+                   title: 'Subir foto',
+                   cssClass: 'action-sheets-basic-page',
+                   buttons: [
+                     {
+                       text: 'Abrir camara',
+                       icon:  'camera',
+                       handler: () => {
+                        //
+                        let cameraOptions : CameraOptions = {
+                            quality: 50,
+                            encodingType: this.camera.EncodingType.JPEG,
+                            targetWidth: 800,
+                            targetHeight: 600,
+                            destinationType: this.camera.DestinationType.DATA_URL,
+                            sourceType: this.camera.PictureSourceType.CAMERA,
+                            correctOrientation: true
+                        }
+
+
+                        this.camera.getPicture(cameraOptions).then((imageData) => {
+                          // imageData is a base64 encoded string
+                            this.acta_jornada_notarial = "data:image/jpeg;base64," + imageData;
+                        }, (err) => {
+                            console.log(err);
+                        });
+
+                       }
+                     },
+                     {
+                       text: 'Abrir galeria',
+                       icon:  'image',
+                       handler: () => {
+                         //console.log('Archive clicked');
+                         
+
+                         let cameraOptions : CameraOptions = {
+                             quality: 50,
+                             encodingType: this.camera.EncodingType.JPEG,
+                             targetWidth: 800,
+                             targetHeight: 600,
+                             destinationType: this.camera.DestinationType.DATA_URL,
+                             sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                             correctOrientation: true,
+                             saveToPhotoAlbum:false
+                         }
+
+
+                         this.camera.getPicture(cameraOptions).then((imageData) => {
+                           // imageData is a base64 encoded string
+                             this.acta_jornada_notarial = "data:image/jpeg;base64," + imageData;
+                         }, (err) => {
+                             console.log(err);
+                         });
+
+                       }
+                     },
+                     {
+                       text:  'Cancelar',
+                       role: 'cancel',
+                       icon: 'close' ,
+                       handler: () => {
+                         console.log('Cancel clicked');
+                       }
+                     }
+                   ]
+                 });
+                 actionSheet.present();
+
+
+ 
                     }
 
 
@@ -992,12 +1769,13 @@ let variables = {
 
   let variables = {
 
-  foto_pre:this.foto_presidente,
-  foto_jefe:this.foto_jefe,
-  foto_sena:this.foto_senadores,
-  foto_d_f:this.foto_diputados_f,
-  foto_d_l:this.foto_diputados_l,
-  foto_a:this.foto_alcaldias,
+  foto_alcalde_2021:this.foto_alcalde_2021,
+  foto_local18_2021:this.foto_local18_2021,
+  foto_local20_2021:this.foto_local20_2021,
+  foto_local23_2021:this.foto_local23_2021,
+  foto_fed06_2021:this.foto_fed06_2021,
+  foto_fed16_2021:this.foto_fed16_2021,
+  foto_fed17_2021:this.foto_fed17_2021,
   foto_sabana1:this.foto_sabana1,
   foto_sabana2:this.foto_sabana2,
   acta_jornada_notarial:this.acta_jornada_notarial,
@@ -1234,6 +2012,230 @@ var c_a_p = (this.cifra_alc_pri % 1);
 
     }
 
+    /*******************************************************************************************/
+
+
+    modal_cifras(partido){
+
+    let variables = {
+      id_registro: this.id_registro,
+      partido: partido
+    }
+
+
+
+   this.db.get_cifras_partido(variables)
+    .map(res => res.json())
+                   .subscribe(res => {
+
+                    this.loading.dismiss();
+
+                   
+                    //alert(res.data[0]['cifra_puesto1_partido'+partido]);
+
+                    
+
+                    let data_param = { 
+                                      
+                                      id_registro:this.id_registro,
+                                      cifra_puesto1:res.data[0]['cifra_puesto1_partido'+partido],
+                                      cifra_puesto2:res.data[1]['cifra_puesto2_partido'+partido],
+                                      cifra_puesto3:res.data[2]['cifra_puesto3_partido'+partido],
+                                      cifra_puesto4:res.data[3]['cifra_puesto4_partido'+partido],
+                                      cifra_puesto5:res.data[4]['cifra_puesto5_partido'+partido],
+                                      cifra_puesto6:res.data[5]['cifra_puesto6_partido'+partido],
+                                      cifra_puesto7:res.data[6]['cifra_puesto7_partido'+partido],
+                                      partido:partido,
+
+                                       };
+
+
+                    let contactModal = this.modalCtrl.create(ModalCifras,data_param);
+                    contactModal.present();
+                        
+
+                  
+                    }, error => {
+
+                    this.loading.dismiss(); 
+
+                      alert(error);
+                   });
+
+    }
+
+
+
+     modal_ccjhh() {
+      let data_param = { 
+                        
+                        id_registro:this.id_registro,
+                        cifra_alc_ccjhh:this.cifra_alc_ccjhh,
+                        cifra_local18_ccjhh:this.cifra_local18_ccjhh,
+                        cifra_local20_ccjhh:this.cifra_local20_ccjhh,
+                        cifra_local23_ccjhh:this.cifra_local23_ccjhh,
+                        cifra_fed16_ccjhh:this.cifra_fed16_ccjhh,
+                        cifra_fed17_ccjhh:this.cifra_fed17_ccjhh,
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalCCJHH,data_param);
+      contactModal.present();
+
+      }
+
+     modal_alianza_mexico() {
+      let data_param = { 
+                            id_registro:this.id_registro,
+                            cifra_alc_almexico:this.cifra_alc_almexico,
+                            cifra_local18_almexico:this.cifra_local18_almexico,
+                            cifra_fed16_almexico:this.cifra_fed16_almexico,
+                            cifra_fed17_almexico:this.cifra_fed17_almexico
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalALIANZAMEXICO,data_param);
+      contactModal.present();
+
+      }
+
+         modal_pmc() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                          cifra_alc_pmc:this.cifra_alc_pmc
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalPMC,data_param);
+      contactModal.present();
+
+      }
+
+           modal_fuerza_mexico() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                         cifra_alc_pfm:this.cifra_alc_pfm,
+                         cifra_fed16_pfm:this.cifra_fed16_pfm,
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalFUERZAMEXICO,data_param);
+      contactModal.present();
+
+      }
+
+           modal_rsp() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                           cifra_alc_prsp:this.cifra_alc_prsp,
+                           cifra_fed17_prsp:this.cifra_fed17_prsp
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalRSP,data_param);
+      contactModal.present();
+
+      }
+
+           modal_ppri() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                         cifra_local23_pri:this.cifra_local23_pri
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalPPRI,data_param);
+      contactModal.present();
+
+      }
+
+           modal_pprd() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                         cifra_local23_prd:this.cifra_local23_prd
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalPPRD,data_param);
+      contactModal.present();
+
+      }
+
+           modal_pve() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                         cifra_local20_pve:this.cifra_local20_pve
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalPVE,data_param);
+      contactModal.present();
+
+      }
+
+           modal_ppan() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                          cifra_local20_pan:this.cifra_local20_pan
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalPPAN,data_param);
+      contactModal.present();
+
+      }
+
+           modal_pmorena() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                         cifra_fed06_morena:this.cifra_fed06_morena
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalPMORENA,data_param);
+      contactModal.present();
+
+      }
+
+           modal_ppt() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                         cifra_fed06_pt:this.cifra_fed06_pt
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalPPT,data_param);
+      contactModal.present();
+
+      }
+
+           modal_pri_prd() {
+      let data_param = { 
+                         id_registro:this.id_registro,
+                         cifra_local20_priprd:this.cifra_local20_priprd
+
+                         };
+
+
+      let contactModal = this.modalCtrl.create(ModalPRIPRD,data_param);
+      contactModal.present();
+
+      }
+
+
+    /*********************************************************************************************/
+
 
 
      modal_prd() {
@@ -1415,67 +2417,228 @@ var c_a_p = (this.cifra_alc_pri % 1);
 
       sacarFoto_escrito1(){
 
-         let cameraOptions : CameraOptions = {
-             quality: 50,
-             encodingType: this.camera.EncodingType.JPEG,
-             targetWidth: 800,
-             targetHeight: 600,
-             destinationType: this.camera.DestinationType.DATA_URL,
-             sourceType: this.camera.PictureSourceType.CAMERA,
-             correctOrientation: true
-         }
+      let actionSheet = this.actionSheetCtrl.create({
+        title: 'Subir foto',
+        cssClass: 'action-sheets-basic-page',
+        buttons: [
+          {
+            text: 'Abrir camara',
+            icon:  'camera',
+            handler: () => {
+             //
+             let cameraOptions : CameraOptions = {
+                 quality: 50,
+                 encodingType: this.camera.EncodingType.JPEG,
+                 targetWidth: 800,
+                 targetHeight: 600,
+                 destinationType: this.camera.DestinationType.DATA_URL,
+                 sourceType: this.camera.PictureSourceType.CAMERA,
+                 correctOrientation: true
+             }
 
 
-         this.camera.getPicture(cameraOptions).then((imageData) => {
-           // imageData is a base64 encoded string
-             this.foto_escrito1 = "data:image/jpeg;base64," + imageData;
-         }, (err) => {
-             console.log(err);
-         });
+             this.camera.getPicture(cameraOptions).then((imageData) => {
+               // imageData is a base64 encoded string
+                 this.foto_escrito1 = "data:image/jpeg;base64," + imageData;
+             }, (err) => {
+                 console.log(err);
+             });
+            }
+          },
+          {
+            text: 'Abrir galeria',
+            icon:  'image',
+            handler: () => {
+              //console.log('Archive clicked');
+              
+
+              let cameraOptions : CameraOptions = {
+                  quality: 50,
+                  encodingType: this.camera.EncodingType.JPEG,
+                  targetWidth: 800,
+                  targetHeight: 600,
+                  destinationType: this.camera.DestinationType.DATA_URL,
+                  sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                  correctOrientation: true,
+                  saveToPhotoAlbum:false
+              }
+
+
+              this.camera.getPicture(cameraOptions).then((imageData) => {
+                // imageData is a base64 encoded string
+                  this.foto_escrito1 = "data:image/jpeg;base64," + imageData;
+              }, (err) => {
+                  console.log(err);
+              });
+            }
+          },
+          {
+            text:  'Cancelar',
+            role: 'cancel',
+            icon: 'close' ,
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          }
+        ]
+      });
+      actionSheet.present();
+
+
        }
 
 
        sacarFoto_escrito2(){
 
-          let cameraOptions : CameraOptions = {
-              quality: 50,
-              encodingType: this.camera.EncodingType.JPEG,
-              targetWidth: 800,
-              targetHeight: 600,
-              destinationType: this.camera.DestinationType.DATA_URL,
-              sourceType: this.camera.PictureSourceType.CAMERA,
-              correctOrientation: true
-          }
 
 
-          this.camera.getPicture(cameraOptions).then((imageData) => {
-            // imageData is a base64 encoded string
-              this.foto_escrito2 = "data:image/jpeg;base64," + imageData;
-          }, (err) => {
-              console.log(err);
-          });
+       let actionSheet = this.actionSheetCtrl.create({
+         title: 'Subir foto',
+         cssClass: 'action-sheets-basic-page',
+         buttons: [
+           {
+             text: 'Abrir camara',
+             icon:  'camera',
+             handler: () => {
+              //
+              
+              let cameraOptions : CameraOptions = {
+                  quality: 50,
+                  encodingType: this.camera.EncodingType.JPEG,
+                  targetWidth: 800,
+                  targetHeight: 600,
+                  destinationType: this.camera.DestinationType.DATA_URL,
+                  sourceType: this.camera.PictureSourceType.CAMERA,
+                  correctOrientation: true
+              }
+
+
+              this.camera.getPicture(cameraOptions).then((imageData) => {
+                // imageData is a base64 encoded string
+                  this.foto_escrito2 = "data:image/jpeg;base64," + imageData;
+              }, (err) => {
+                  console.log(err);
+              });
+
+             }
+           },
+           {
+             text: 'Abrir galeria',
+             icon:  'image',
+             handler: () => {
+               //console.log('Archive clicked');
+               
+
+               
+               let cameraOptions : CameraOptions = {
+                   quality: 50,
+                   encodingType: this.camera.EncodingType.JPEG,
+                   targetWidth: 800,
+                   targetHeight: 600,
+                   destinationType: this.camera.DestinationType.DATA_URL,
+                   sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                   correctOrientation: true,
+                   saveToPhotoAlbum:false
+               }
+
+
+               this.camera.getPicture(cameraOptions).then((imageData) => {
+                 // imageData is a base64 encoded string
+                   this.foto_escrito2 = "data:image/jpeg;base64," + imageData;
+               }, (err) => {
+                   console.log(err);
+               });
+
+             }
+           },
+           {
+             text:  'Cancelar',
+             role: 'cancel',
+             icon: 'close' ,
+             handler: () => {
+               console.log('Cancel clicked');
+             }
+           }
+         ]
+       });
+       actionSheet.present();
+
         }
 
 
         sacarFoto_escrito3(){
 
-           let cameraOptions : CameraOptions = {
-               quality: 50,
-               encodingType: this.camera.EncodingType.JPEG,
-               targetWidth: 800,
-               targetHeight: 600,
-               destinationType: this.camera.DestinationType.DATA_URL,
-               sourceType: this.camera.PictureSourceType.CAMERA,
-               correctOrientation: true
-           }
+        let actionSheet = this.actionSheetCtrl.create({
+          title: 'Subir foto',
+          cssClass: 'action-sheets-basic-page',
+          buttons: [
+            {
+              text: 'Abrir camara',
+              icon:  'camera',
+              handler: () => {
+               //
+               let cameraOptions : CameraOptions = {
+                   quality: 50,
+                   encodingType: this.camera.EncodingType.JPEG,
+                   targetWidth: 800,
+                   targetHeight: 600,
+                   destinationType: this.camera.DestinationType.DATA_URL,
+                   sourceType: this.camera.PictureSourceType.CAMERA,
+                   correctOrientation: true
+               }
 
 
-           this.camera.getPicture(cameraOptions).then((imageData) => {
-             // imageData is a base64 encoded string
-               this.foto_escrito3 = "data:image/jpeg;base64," + imageData;
-           }, (err) => {
-               console.log(err);
-           });
+               this.camera.getPicture(cameraOptions).then((imageData) => {
+                 // imageData is a base64 encoded string
+                   this.foto_escrito3 = "data:image/jpeg;base64," + imageData;
+               }, (err) => {
+                   console.log(err);
+               });
+
+              }
+            },
+            {
+              text: 'Abrir galeria',
+              icon:  'image',
+              handler: () => {
+                //console.log('Archive clicked');
+                
+
+                let cameraOptions : CameraOptions = {
+                    quality: 50,
+                    encodingType: this.camera.EncodingType.JPEG,
+                    targetWidth: 800,
+                    targetHeight: 600,
+                    destinationType: this.camera.DestinationType.DATA_URL,
+                    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                    correctOrientation: true,
+                    saveToPhotoAlbum:false
+                }
+
+
+                this.camera.getPicture(cameraOptions).then((imageData) => {
+                  // imageData is a base64 encoded string
+                    this.foto_escrito3 = "data:image/jpeg;base64," + imageData;
+                }, (err) => {
+                    console.log(err);
+                });
+
+
+              }
+            },
+            {
+              text:  'Cancelar',
+              role: 'cancel',
+              icon: 'close' ,
+              handler: () => {
+                console.log('Cancel clicked');
+              }
+            }
+          ]
+        });
+        actionSheet.present();
+
+
          }
 
 
@@ -1505,26 +2668,224 @@ var c_a_p = (this.cifra_alc_pri % 1);
 
            sabana2(){
 
+           let actionSheet = this.actionSheetCtrl.create({
+             title: 'Subir foto',
+             cssClass: 'action-sheets-basic-page',
+             buttons: [
+               {
+                 text: 'Abrir camara',
+                 icon:  'camera',
+                 handler: () => {
+                  //
+                let cameraOptions : CameraOptions = {
+                    quality: 50,
+                    encodingType: this.camera.EncodingType.JPEG,
+                    targetWidth: 800,
+                    targetHeight: 600,
+                    destinationType: this.camera.DestinationType.DATA_URL,
+                    sourceType: this.camera.PictureSourceType.CAMERA,
+                    correctOrientation: true
+                }
 
-           let cameraOptions : CameraOptions = {
-               quality: 50,
-               encodingType: this.camera.EncodingType.JPEG,
-               targetWidth: 800,
-               targetHeight: 600,
-               destinationType: this.camera.DestinationType.DATA_URL,
-               sourceType: this.camera.PictureSourceType.CAMERA,
-               correctOrientation: true
-           }
+
+                this.camera.getPicture(cameraOptions).then((imageData) => {
+                  // imageData is a base64 encoded string
+                    this.foto_sabana2 = "data:image/jpeg;base64," + imageData;
+                }, (err) => {
+                    console.log(err);
+                });
+
+                 }
+               },
+               {
+                 text: 'Abrir galeria',
+                 icon:  'image',
+                 handler: () => {
+                   //console.log('Archive clicked');
+                   
+
+                   let cameraOptions : CameraOptions = {
+                       quality: 50,
+                       encodingType: this.camera.EncodingType.JPEG,
+                       targetWidth: 800,
+                       targetHeight: 600,
+                       destinationType: this.camera.DestinationType.DATA_URL,
+                       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                       correctOrientation: true,
+                       saveToPhotoAlbum:false
+                   }
 
 
-           this.camera.getPicture(cameraOptions).then((imageData) => {
-             // imageData is a base64 encoded string
-               this.foto_sabana2 = "data:image/jpeg;base64," + imageData;
-           }, (err) => {
-               console.log(err);
+                   this.camera.getPicture(cameraOptions).then((imageData) => {
+                     // imageData is a base64 encoded string
+                       this.foto_sabana2 = "data:image/jpeg;base64," + imageData;
+                   }, (err) => {
+                       console.log(err);
+                   });
+
+                 }
+               },
+               {
+                 text:  'Cancelar',
+                 role: 'cancel',
+                 icon: 'close' ,
+                 handler: () => {
+                   console.log('Cancel clicked');
+                 }
+               }
+             ]
            });
+           actionSheet.present();
+
+
+
 
            }
+
+
+           sabana3(){
+
+           let actionSheet = this.actionSheetCtrl.create({
+             title: 'Subir foto',
+             cssClass: 'action-sheets-basic-page',
+             buttons: [
+               {
+                 text: 'Abrir camara',
+                 icon:  'camera',
+                 handler: () => {
+                  //
+                  let cameraOptions : CameraOptions = {
+                      quality: 50,
+                      encodingType: this.camera.EncodingType.JPEG,
+                      targetWidth: 800,
+                      targetHeight: 600,
+                      destinationType: this.camera.DestinationType.DATA_URL,
+                      sourceType: this.camera.PictureSourceType.CAMERA,
+                      correctOrientation: true
+                  }
+
+
+                  this.camera.getPicture(cameraOptions).then((imageData) => {
+                    // imageData is a base64 encoded string
+                      this.foto_sabana3 = "data:image/jpeg;base64," + imageData;
+                  }, (err) => {
+                      console.log(err);
+                  });
+
+                 }
+               },
+               {
+                 text: 'Abrir galeria',
+                 icon:  'image',
+                 handler: () => {
+                   //console.log('Archive clicked');
+                   
+
+                   let cameraOptions : CameraOptions = {
+                       quality: 50,
+                       encodingType: this.camera.EncodingType.JPEG,
+                       targetWidth: 800,
+                       targetHeight: 600,
+                       destinationType: this.camera.DestinationType.DATA_URL,
+                       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                       correctOrientation: true,
+                       saveToPhotoAlbum:false
+                   }
+
+
+                   this.camera.getPicture(cameraOptions).then((imageData) => {
+                     // imageData is a base64 encoded string
+                       this.foto_sabana3 = "data:image/jpeg;base64," + imageData;
+                   }, (err) => {
+                       console.log(err);
+                   });
+
+                 }
+               },
+               {
+                 text:  'Cancelar',
+                 role: 'cancel',
+                 icon: 'close' ,
+                 handler: () => {
+                   console.log('Cancel clicked');
+                 }
+               }
+             ]
+           });
+           actionSheet.present();
+
+
+
+
+           }
+
+
+
+
+
+    modal_cifras_partidos(puesto){
+
+    let variables = {
+      id_registro: this.id_registro,
+      puesto: puesto
+    }
+
+
+
+   this.db.get_cifras_partidov2(variables)
+    .map(res => res.json())
+                   .subscribe(res => {
+
+                    this.loading.dismiss();
+
+                    
+
+                    let data_param = { 
+                                      
+                                      id_registro:this.id_registro,
+                                      cifra_partido1:res.data[0]['cifra_puesto'+puesto+'_partido1'],
+                                      cifra_partido2:res.data[1]['cifra_puesto'+puesto+'_partido2'],
+                                      cifra_partido3:res.data[2]['cifra_puesto'+puesto+'_partido3'],
+                                      cifra_partido4:res.data[3]['cifra_puesto'+puesto+'_partido4'],
+                                      cifra_partido5:res.data[4]['cifra_puesto'+puesto+'_partido5'],
+                                      cifra_partido6:res.data[5]['cifra_puesto'+puesto+'_partido6'],
+                                      cifra_partido7:res.data[6]['cifra_puesto'+puesto+'_partido7'],
+                                      cifra_partido8:res.data[7]['cifra_puesto'+puesto+'_partido8'],
+                                      cifra_partido9:res.data[8]['cifra_puesto'+puesto+'_partido9'],
+                                      cifra_partido10:res.data[9]['cifra_puesto'+puesto+'_partido10'],
+                                      cifra_partido11:res.data[10]['cifra_puesto'+puesto+'_partido11'],
+                                      cifra_partido12:res.data[11]['cifra_puesto'+puesto+'_partido12'],
+                                      cifra_partido13:res.data[12]['cifra_puesto'+puesto+'_partido13'],
+
+                                      cifra_partido14:res.data[12]['cifra_puesto'+puesto+'_partido14'],
+                                      cifra_partido15:res.data[12]['cifra_puesto'+puesto+'_partido15'],
+                                      cifra_partido16:res.data[12]['cifra_puesto'+puesto+'_partido16'],
+                                      cifra_partido17:res.data[12]['cifra_puesto'+puesto+'_partido17'],
+                                      cifra_partido18:res.data[12]['cifra_puesto'+puesto+'_partido18'],
+                                      cifra_partido19:res.data[12]['cifra_puesto'+puesto+'_partido19'],
+                                      cifra_partido20:res.data[12]['cifra_puesto'+puesto+'_partido20'],
+                                      cifra_partido21:res.data[12]['cifra_puesto'+puesto+'_partido21'],
+                                      puesto:puesto,
+
+                                       };
+
+
+                    let contactModal = this.modalCtrl.create(ModalCifras,data_param);
+                    contactModal.present();
+                        
+
+                  
+                    }, error => {
+
+                    this.loading.dismiss(); 
+
+                      alert(error);
+                   });
+
+    }
+
+
+
 
 
 

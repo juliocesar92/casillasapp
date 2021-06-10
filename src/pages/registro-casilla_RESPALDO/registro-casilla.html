@@ -66,8 +66,8 @@
                       
                        <ion-list>
 
-                          <!--<ion-label >Registrar la asistencia de la persona en el listado nominal </ion-label> <br>
-                           <button ion-button   block (click)="buscar_listado_nominal()">Buscar listado nominal</button>-->
+                          <ion-label >Registrar la asistencia de la persona en el listado nominal </ion-label> <br>
+                           <button ion-button   (click)="buscar_listado_nominal()">Buscar</button>
 
 
 
@@ -391,93 +391,94 @@
                        <h3>Actas</h3>
 
                        <br><br>
-
-                       <h3>*Acta Alcalde</h3>
-                       <br>
-                       <ion-list>
-                          <ion-item>
-                             <img [src]="foto_alcalde_2021" *ngIf="foto_alcalde_2021" />
-                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_alcalde_2021()">
-                               Tomar foto &nbsp;&nbsp;
-                               <ion-icon name="camera"></ion-icon>
-                             </button>
-                          </ion-item>
-
-
-                       </ion-list><br>
-
-                       <h3>*Acta Dtto. Local 18</h3>
-                       <br>
-                       <ion-list>
-                          <ion-item>
-                             <img [src]="foto_local18_2021" *ngIf="foto_local18_2021" />
-                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_local18()">
-                               Tomar foto &nbsp;&nbsp;
-                               <ion-icon name="camera"></ion-icon>
-                             </button>
-                          </ion-item>
-                       </ion-list><br>
-
-                       <h3>*Acta Dtto. Local 20</h3>
-                       <br>
-                       <ion-list>
-                          <ion-item>
-                             <img [src]="foto_local20_2021" *ngIf="foto_local20_2021" />
-                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_local20()">
-                               Tomar foto &nbsp;&nbsp;
-                               <ion-icon name="camera"></ion-icon>
-                             </button>
-                          </ion-item>
-                       </ion-list><br>
-                       <h3>*Acta Dtto. Local 23</h3>
-                       <br>
-                       <ion-list>
-                          <ion-item>
-                             <img [src]="foto_local23_2021" *ngIf="foto_local23_2021" />
-                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_local23()">
-                               Tomar foto &nbsp;&nbsp;
-                               <ion-icon name="camera"></ion-icon>
-                             </button>
-                          </ion-item>
-                       </ion-list><br>
-                       <h3>*Acta Dtto. Fed 06</h3>
-                       <br>
-                       <ion-list>
-                          <ion-item>
-                             <img [src]="foto_fed06_2021" *ngIf="foto_fed06_2021" />
-                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_fed06()">
-                               Tomar foto &nbsp;&nbsp;
-                               <ion-icon name="camera"></ion-icon>
-                             </button>
-                          </ion-item>
-                       </ion-list><br>
-
-                       <h3>*Acta Dtto. Fed 16</h3>
-                       <br>
-                       <ion-list>
-                          <ion-item>
-                             <img [src]="foto_fed16_2021" *ngIf="foto_fed16_2021" />
-                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_fed16()">
-                               Tomar foto &nbsp;&nbsp;
-                               <ion-icon name="camera"></ion-icon>
-                             </button>
-                          </ion-item>
-                       </ion-list><br>
-
-
-                       <h3>*Acta Dtto. Fed 17</h3>
-                       <br>
-                       <ion-list>
-                          <ion-item>
-                             <img [src]="foto_fed17_2021" *ngIf="foto_fed17_2021" />
-                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_fed17()">
-                               Tomar foto &nbsp;&nbsp;
-                               <ion-icon name="camera"></ion-icon>
-                             </button>
-                          </ion-item>
-                       </ion-list><br>
                       
+                       <h3>*Acta Presidente</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_presidente" *ngIf="foto_presidente" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_presidente()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
 
+
+                       </ion-list><br>
+
+                       <h3>*Acta Jefe de la CDMX</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_jefe" *ngIf="foto_jefe" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_jefe()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+
+                       <h3>*Acta Senadores</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_senadores" *ngIf="foto_senadores" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_senadores()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+                       <h3>*Acta Diputados Federales</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_diputados_f" *ngIf="foto_diputados_f" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_diputados_f()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+                       <h3>*Acta Diputados Locales</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_diputados_l" *ngIf="foto_diputados_l" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_diputados_l()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list><br>
+
+
+                       <h3>*Acta Alcaldias</h3>
+                       <br>
+                       <ion-list>
+                          <ion-item>
+                             <img [src]="foto_alcaldias" *ngIf="foto_alcaldias" />
+                             <button  ion-button icon-left full type="button" (tap)="sacarFoto_alcaldias()">
+                               Tomar foto &nbsp;&nbsp;
+                               <ion-icon name="camera"></ion-icon>
+                             </button>
+                          </ion-item>
+
+
+                       </ion-list>
 
 
                        <h3>*Sabana de resultados 1</h3>
@@ -503,20 +504,6 @@
                           <ion-item>
                              <img [src]="foto_sabana2" *ngIf="foto_sabana2" />
                              <button  ion-button icon-left full type="button" (tap)="sabana2()">
-                               Tomar foto &nbsp;&nbsp;
-                               <ion-icon name="camera"></ion-icon>
-                             </button>
-                          </ion-item>
-
-
-                       </ion-list>
-
-                       <h3>Sabana de resultados 3</h3>
-                       <br>
-                       <ion-list>
-                          <ion-item>
-                             <img [src]="foto_sabana2" *ngIf="foto_sabana2" />
-                             <button  ion-button icon-left full type="button" (tap)="sabana3()">
                                Tomar foto &nbsp;&nbsp;
                                <ion-icon name="camera"></ion-icon>
                              </button>
@@ -558,6 +545,7 @@
             </ion-row>
 </ion-grid>
 
+
 <ion-grid *ngSwitchCase="'7'">
             <ion-row>
                 <ion-col>
@@ -565,121 +553,124 @@
                        <h3>Cifras</h3>
 
                        <br><br>
+                       
+                      
 
-                       <ion-list>
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorPRD == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_prd()">PRD</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button [ngStyle]="{'background-color': (colorPAN == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_pan()">PAN</button>
+                                </div>
+                       </div>
 
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorMC == '1') ? '#89FC63' : '#FF8A8A' }"  class="customBtn" (click)="modal_mc()">MC</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button [ngStyle]="{'background-color': (colorFRENTE == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_frente()" >C.FRENTE</button>
+                                </div>
+                       </div> 
 
-
+                       <br><br>
+                       
                        
                         
-                        
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorMORENA == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_morena()">MORENA</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button [ngStyle]="{'background-color': (colorPT == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_pt()">PT</button>
+                                </div>
+                       </div> 
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorPES == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_pes()" >PES</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button [ngStyle]="{'background-color': (colorJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_jhh()" >C. JHH</button>
+                                </div>
+                       </div>
 
+                       <br><br>
                        
-                        
-                       
-
-
-                          <!--<ion-label >Registrar la asistencia de la persona en el listado nominal </ion-label> <br>
-                           <button ion-button   block (click)="buscar_listado_nominal()">Buscar listado nominal</button>-->
+                      
 
 
 
-                         <ion-item>
-                           <button ion-button (click)="modal_cifras_partidos(1)" primary block class="login-button">Alcaldía</button>
-                         </ion-item>
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorPRI == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_pri()">PRI</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button  [ngStyle]="{'background-color': (colorVERDE == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_verde()">VERDE</button>
+                                </div>
+                       </div> 
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button  [ngStyle]="{'background-color': (colorALIANZA == '1') ? '#89FC63' : '#FF8A8A' }"  class="customBtn" (click)="modal_nalianza()">N. ALIANZA</button>
+                                </div>
+                                <div class="col col-49" > 
+                                     <button ion-button  [ngStyle]="{'background-color': (colorHUMANISTA == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_humanista()">HUMANISTA</button>
+                                </div>
+                       </div>
+
+                       <div class="row">
+                                <div class="col col-49" >   
+                                     <button ion-button [ngStyle]="{'background-color': (colorTMEXICO == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_todos_mexico()">C. T.P.MEXICO</button>
+                                </div>
+                       </div>  
+              
+                      
+                       <!--<ion-list>
 
 
-                         <ion-item>
-                           <button ion-button (click)="modal_cifras_partidos(2)" primary block class="login-button"> Diputación Local Dto 18</button>
-                         </ion-item>
+                          <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta presidente</ion-label>
+                             <ion-input [(ngModel)]="cifra_pre" type="number"   ></ion-input>
+                          </ion-item>
 
-                         <ion-item>
-                           <button ion-button (click)="modal_cifras_partidos(3)" primary block class="login-button">Diputación Local Dto 20</button>
-                         </ion-item>
 
-                         <ion-item>
-                           <button ion-button (click)="modal_cifras_partidos(4)" primary block class="login-button">Diputación Local Dto 23</button>
-                         </ion-item>
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta jefe CDMX</ion-label>
+                             <ion-input [(ngModel)]="cifra_jefe" type="number" ></ion-input>
+                          </ion-item>
 
-                         <ion-item>
-                           <button ion-button (click)="modal_cifras_partidos(5)" primary block class="login-button"> Diputación  Fed 6</button>
-                         </ion-item>
 
-                         <ion-item>
-                           <button ion-button (click)="modal_cifras_partidos(6)" primary block class="login-button">Diputación  Fed 16</button>
-                         </ion-item>
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta senadores</ion-label>
+                             <ion-input [(ngModel)]="cifra_sena" type="number" ></ion-input>
+                          </ion-item>
 
-                         <ion-item>
-                           <button ion-button (click)="modal_cifras_partidos(7)" primary block class="login-button">Diputación  Fed 17</button>
-                         </ion-item>
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta diputados federales</ion-label>
+                             <ion-input [(ngModel)]="cifra_di_f" type="number" ></ion-input>
+                          </ion-item>
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta diputados locales</ion-label>
+                             <ion-input [(ngModel)]="cifra_di_l" type="number" ></ion-input>
+                          </ion-item>
+
+
+                           <ion-item>
+                             <ion-label color="primary" floating>*Cifra acta alcaldias</ion-label>
+                             <ion-input [(ngModel)]="cifra_alc" type="number" ></ion-input>
+                          </ion-item>
+                          
+
+                         
 
                        </ion-list>
 
 
-
-                       <!--
-
-                       <div class="row">
-                                 <div class="col col-49" >   
-                                      <button ion-button [ngStyle]="{'background-color': (colorCCJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(1)">PAN</button>
-                                 </div>
-                                 <div class="col col-49" > 
-                                      <button ion-button [ngStyle]="{'background-color': (colorALMEXICO == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(2)">PRI</button>
-                                 </div>
-                        </div>
-
-                        <div class="row">
-                                  <div class="col col-49" >   
-                                       <button ion-button [ngStyle]="{'background-color': (colorCCJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(3)">PRD</button>
-                                  </div>
-                                  <div class="col col-49" > 
-                                       <button ion-button [ngStyle]="{'background-color': (colorALMEXICO == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(4)">PVEM</button>
-                                  </div>
-                         </div>
-
-                         <div class="row">
-                                   <div class="col col-49" >   
-                                        <button ion-button [ngStyle]="{'background-color': (colorCCJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(5)">PT</button>
-                                   </div>
-                                   <div class="col col-49" > 
-                                        <button ion-button [ngStyle]="{'background-color': (colorALMEXICO == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(6)">MORENA</button>
-                                   </div>
-                          </div>
-
-                          <div class="row">
-                                    <div class="col col-49" >   
-                                         <button ion-button [ngStyle]="{'background-color': (colorCCJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(7)">MC</button>
-                                    </div>
-                                    <div class="col col-49" > 
-                                         <button ion-button [ngStyle]="{'background-color': (colorALMEXICO == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(8)">PELG</button>
-                                    </div>
-                           </div>
-                           <div class="row">
-                                     <div class="col col-49" >   
-                                          <button ion-button [ngStyle]="{'background-color': (colorCCJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(9)">PES</button>
-                                     </div>
-                                     <div class="col col-49" > 
-                                          <button ion-button [ngStyle]="{'background-color': (colorALMEXICO == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(10)">RSP</button>
-                                     </div>
-                            </div>
-
-                            <div class="row">
-                                      <div class="col col-49" >   
-                                           <button ion-button small [ngStyle]="{'background-color': (colorCCJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(11)">fUERZA MEXICO</button>
-                                      </div>
-                             </div>
-
-                             <div class="row">
-                                       <div class="col col-49" >   
-                                            <button ion-button [ngStyle]="{'background-color': (colorCCJHH == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(12)">CJHH</button>
-                                       </div>
-                                       <div class="col col-49" > 
-                                            <button ion-button [ngStyle]="{'background-color': (colorALMEXICO == '1') ? '#89FC63' : '#FF8A8A' }" class="customBtn" (click)="modal_cifras(13)">VA MEXICO</button>
-                                       </div>
-                              </div>
-
-                            -->
-
+                       <div padding>
+                         <button ion-button block (click)="guardar_cifras_frente()" >Guardar</button>
+                       </div>-->
 
 
                       </div>

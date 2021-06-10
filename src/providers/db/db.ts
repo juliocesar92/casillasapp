@@ -26,7 +26,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 export class DbProvider {
 
 db : SQLiteObject = null;
-url_mula: string ="http://casillas.cdmx.esy.es";
+url_mula: string ="http://8d4ad92.online-server.cloud";
 //url_mula: string ="http://189.240.60.168";
 
 
@@ -210,12 +210,13 @@ url_mula: string ="http://casillas.cdmx.esy.es";
 
         public save_actas(array) {
         let postParams = {
-                          foto_pre:array.foto_pre,
-                          foto_jefe:array.foto_jefe,
-                          foto_sena:array.foto_sena,
-                          foto_d_f:array.foto_d_f,
-                          foto_d_l:array.foto_d_l,
-                          foto_a:array.foto_a,
+                          foto_alcalde_2021:array.foto_alcalde_2021,
+                          foto_local18_2021:array.foto_local18_2021,
+                          foto_local20_2021:array.foto_local20_2021,
+                          foto_local23_2021:array.foto_local23_2021,
+                          foto_fed06_2021:array.foto_fed06_2021,
+                          foto_fed16_2021:array.foto_fed16_2021,
+                          foto_fed17_2021:array.foto_fed17_2021,
                           foto_sabana1:array.foto_sabana1,
                           foto_sabana2:array.foto_sabana2,
                           acta_jornada_notarial:array.acta_jornada_notarial,
@@ -483,6 +484,225 @@ url_mula: string ="http://casillas.cdmx.esy.es";
          return this.http.post(this.url_mula+"/save_escrito",postParams);
          
         }
+
+
+
+
+        /*****************************************************************************/
+
+        public save_cifra_ccjhh(array) {
+        let postParams = {
+                          
+                          id_registro:array.id_registro,
+                          cifra_alcalde_ccjhh:array.cifra_alcalde_ccjhh,
+                          cifra_local18_ccjhh:array.cifra_local18_ccjhh,
+                          cifra_local20_ccjhh:array.cifra_local20_ccjhh,
+                          cifra_local23_ccjhh:array.cifra_local23_ccjhh,
+                          cifra_fed16_ccjhh:array.cifra_fed16_ccjhh,
+                          cifra_fed17_ccjhh:array.cifra_fed17_ccjhh,
+                          }
+         return this.http.post(this.url_mula+"/save_cifra_ccjhh",postParams);
+         
+        }
+
+        public save_cifra_almexico(array) {
+        let postParams = {
+                          
+                          id_registro:array.id_registro,
+                          cifra_alcalde_alianza_mexico:array.cifra_alcalde_alianza_mexico,
+                          cifra_local18_alianza_mexico:array.cifra_local18_alianza_mexico,
+                          cifra_fed16_alianza_mexico:array.cifra_fed16_alianza_mexico,
+                          cifra_fed17_alianza_mexico:array.cifra_fed17_alianza_mexico,
+                          }
+         return this.http.post(this.url_mula+"/save_cifra_almexico",postParams);
+         
+        }
+
+        public save_cifra_pmc(array) {
+        let postParams = {
+                          
+                          id_registro:array.id_registro,
+                          cifra_alcalde_mc:array.cifra_alcalde_mc
+                          }
+         return this.http.post(this.url_mula+"/save_cifra_pmc",postParams);
+         
+        }
+
+        public save_cifra_pfm(array) {
+        let postParams = {
+                          
+                          id_registro:array.id_registro,
+                          cifra_alcalde_fuerza_mexico:array.cifra_alcalde_fuerza_mexico,
+                          cifra_fed16_fuerza_mexico:array.cifra_fed16_fuerza_mexico
+                          }
+         return this.http.post(this.url_mula+"/save_cifra_pfm",postParams);
+         }
+
+         public save_cifra_rsp(array) {
+         let postParams = {
+                           
+                           id_registro:array.id_registro,
+                           cifra_alcalde_rsp:array.cifra_alcalde_rsp,
+                           cifra_fed17_rsp:array.cifra_fed17_rsp
+                           }
+          return this.http.post(this.url_mula+"/save_cifra_rsp",postParams);
+
+          }
+
+          public save_cifra_priprd(array) {
+          let postParams = {
+                            
+                            id_registro:array.id_registro,
+                            cifra_local20_priprd:array.cifra_local20_priprd
+                            }
+           return this.http.post(this.url_mula+"/save_cifra_priprd",postParams);
+
+         
+        }
+
+          public save_cifra_pve(array) {
+          let postParams = {
+                            
+                            id_registro:array.id_registro,
+                            cifra_local20_pve:array.cifra_local20_pve
+                            }
+           return this.http.post(this.url_mula+"/save_cifra_pve",postParams);
+        }
+
+          public save_cifra_ppan(array) {
+          let postParams = {
+                            
+                            id_registro:array.id_registro,
+                            cifra_local20_pan:array.cifra_local20_pan
+                            }
+           return this.http.post(this.url_mula+"/save_cifra_ppan",postParams);
+        }
+
+          public save_cifra_pprd(array) {
+          let postParams = {
+                            
+                            id_registro:array.id_registro,
+                            cifra_local23_prd:array.cifra_local23_prd
+                            }
+           return this.http.post(this.url_mula+"/save_cifra_pprd",postParams);
+        }
+
+          public save_cifra_ppri(array) {
+          let postParams = {
+                            
+                            id_registro:array.id_registro,
+                            cifra_local23_pri:array.cifra_local23_pri
+                            }
+           return this.http.post(this.url_mula+"/save_cifra_ppri",postParams);
+        }
+
+          public save_cifra_pmorena(array) {
+          let postParams = {
+                            
+                            id_registro:array.id_registro,
+                            cifra_fed06_morena:array.cifra_fed06_morena
+                            }
+           return this.http.post(this.url_mula+"/save_cifra_pmorena",postParams);
+        }
+
+          public save_cifra_ppt(array) {
+          let postParams = {
+                            
+                            id_registro:array.id_registro,
+                            cifra_fed06_pt:array.cifra_fed06_pt
+                            }
+           return this.http.post(this.url_mula+"/save_cifra_ppt",postParams);
+        }
+
+
+        /******************************************************************************/
+
+
+
+        public consulta_conteo_listado_nominal(seccion) {
+        return this.http.get(this.url_mula+"/conteolistadonominal/"+seccion);
+        }
+
+
+        get_cifras_partido(array){
+
+        return this.http.get(this.url_mula+"/get_cifraspartido/"+array.id_registro+"/"+array.partido);
+
+        }
+
+        get_cifras_partidov2(array){
+
+        return this.http.get(this.url_mula+"/get_cifraspartido_v2/"+array.id_registro+"/"+array.puesto);
+
+        }
+
+
+
+        save_cifra_puestos(array){
+
+
+
+        let postParams = {
+
+          id_registro:array.id_casilla,
+          cifra_puesto1:array.cifra_puesto1,
+          cifra_puesto2:array.cifra_puesto2,
+          cifra_puesto3:array.cifra_puesto3,
+          cifra_puesto4:array.cifra_puesto4,
+          cifra_puesto5:array.cifra_puesto5,
+          cifra_puesto6:array.cifra_puesto6,
+          cifra_puesto7:array.cifra_puesto7,
+          partido:array.partido
+
+          };
+
+          return this.http.post(this.url_mula+"/save_cifra_puestos",postParams);
+
+
+
+        }
+
+
+
+        save_cifra_puestos_v2(array){
+
+
+
+        let postParams = {
+
+          id_registro:array.id_casilla,
+          cifra_partido1:array.cifra_partido1,
+          cifra_partido2:array.cifra_partido2,
+          cifra_partido3:array.cifra_partido3,
+          cifra_partido4:array.cifra_partido4,
+          cifra_partido5:array.cifra_partido5,
+          cifra_partido6:array.cifra_partido6,
+          cifra_partido7:array.cifra_partido7,
+          cifra_partido8:array.cifra_partido8,
+          cifra_partido9:array.cifra_partido9,
+          cifra_partido10:array.cifra_partido10,
+          cifra_partido11:array.cifra_partido11,
+          cifra_partido12:array.cifra_partido12,
+          cifra_partido13:array.cifra_partido13,
+
+           cifra_partido14:array.cifra_partido14,
+            cifra_partido15:array.cifra_partido15,
+             cifra_partido16:array.cifra_partido16,
+              cifra_partido17:array.cifra_partido17,
+               cifra_partido18:array.cifra_partido18,
+                cifra_partido19:array.cifra_partido19,
+                 cifra_partido20:array.cifra_partido20,
+                  cifra_partido21:array.cifra_partido21,
+          puesto:array.puesto
+
+          };
+
+          return this.http.post(this.url_mula+"/save_cifra_puestos_v2",postParams);
+
+
+
+        }
+
 
 
         
